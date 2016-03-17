@@ -1,0 +1,12 @@
+#Virtual Environment
+venv_bashring/
+
+#Python Stuff
+__pycache__
+*.py[cod]
+*$py.class
+
+#Django stuff
+*.log
+db.sqlite3
+migrations/
