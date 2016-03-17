@@ -10,3 +10,6 @@ __pycache__
 *.log
 db.sqlite3
 migrations/
+
+#SECURITY MAKE SURE TO HAVE THIS
+local_settings.py

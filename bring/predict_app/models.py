@@ -1,5 +1,8 @@
 from django.db import models
 
+#import stuff for AUTH_USER_MODEL
+from django.conf import setting
+
 # Create your models here.
 
 class Ring_User(models.Model):
