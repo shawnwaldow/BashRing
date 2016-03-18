@@ -11,7 +11,7 @@ class Ring_User(models.Model):
 	last_name = models.CharField(max_length=64, default='noname')
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
-	avatar = models.ImageField()
+	avatar = models.ImageField(default="static/menu_images/user1.png",upload_to="avatar_images")
 """
 class User_Prediction(models.Model)
 	#Foreign Keys
@@ -27,7 +27,7 @@ class User_Prediction(models.Model)
 	note = models.TextField(max_length=255)
 """
 class Fighter(models.Model):
-	image = models.ImageField()
+	image = models.ImageField(default="static/menu_images/anon_fighter_small.jpg", upload_to="fighter_images")
 	wins = models.PositiveIntegerField()
 	losses = models.PositiveIntegerField()
 	draws = models.PositiveIntegerField()
