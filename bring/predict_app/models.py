@@ -7,24 +7,51 @@ from django.conf import setting
 
 class Ring_User(models.Model):
 
-	first = models.TextField(max_length=64, default='noname')
-	last = models.TextField(max_length=64, default='noname')
+	first_name = models.CharField(max_length=64, default='noname')
+	last_name = models.CharField(max_length=64, default='noname')
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
-	avatar = models.ImageField
-
+	avatar = models.ImageField()
+"""
 class User_Prediction(models.Model)
+	#Foreign Keys
 	bout_id = models.ForeignKey(Bout)
 	winner = models.ForeignKey(Fighter)
 	method = models.ForeignKey(Method)
-	round_final = models.PositiveSmallIntegerField()
-	confidence = models.ForeignKey(Likert)
-	excitement = models.ForeignKey(Likert)
-	attachment = models.ForeignKey(Likert)
 	ring_user_id = models.ForeignKey(Ring_User)
+	round_final = models.PositiveSmallIntegerField()
+	#Remake these as a const Likert 
+	confidence = models.PositiveIntegerField()
+	excitement = models.PositiveIntegerField()
+	attachment = models.PositiveIntegerField()
+	note = models.TextField(max_length=255)
+"""
+class Fighter(models.Model)
+	image = models.ImageField()
+	wins = models.PositiveIntegerField()
+	losses = models.PositiveIntegerField()
+	draws = models.PositiveIntegerField()
+	ncs = models.PositiveIntegerField()
+	tkos = models.PositiveIntegerField()
+	kos = models.PositiveIntegerField()
+	decs = models.PositiveIntegerField()
+	days_layoff = models.PositiveIntegerField()
+	fudge = models.FloatField(default=1)
+	spice = models.FloatField(default=1)
+	batwings = models.PositiveIntegerField()
+	water = models.FloatField(default=1)
+"""
+class Method(model.Model)
+	#CONST
+	incomplete = 
+	win = 
+	loss = 
+	draw = 
+	nc = 
+	tko = 
+	ko = 
+	unan_dec = 
+	split_dec = 
 
-
-
-#relational table
-
-use related name on fighter1 and 2 relationship
+class FightCard(model.Model)
+"""
