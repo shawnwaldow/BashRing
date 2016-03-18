@@ -1,7 +1,7 @@
 from django.db import models
 
 #import stuff for AUTH_USER_MODEL
-from django.conf import setting
+from django.conf import settings
 
 # Create your models here.
 
@@ -26,7 +26,7 @@ class User_Prediction(models.Model)
 	attachment = models.PositiveIntegerField()
 	note = models.TextField(max_length=255)
 """
-class Fighter(models.Model)
+class Fighter(models.Model):
 	image = models.ImageField()
 	wins = models.PositiveIntegerField()
 	losses = models.PositiveIntegerField()
