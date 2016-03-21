@@ -48,19 +48,34 @@ class Fighter(models.Model):
 	spice = models.FloatField(default=1)
 	batwings = models.PositiveIntegerField()
 	water = models.FloatField(default=1)
-"""
+
 class Method(models.Model):
 	#CONST
-	incomplete = 
-	win = 
-	loss = 
-	draw = 
-	nc = 
-	tko = 
-	ko = 
-	unan_dec = 
-	split_dec = 
-"""
+	INCOMPLETE = 0
+	SUB = 1
+	TKO = 2 
+	KO = 3
+	UNAN_DEC = 4
+	SPLIT_DEC = 5
+	DRAW = 6
+	NC =  7
+
+	Result = (
+		(INCOMPLETE, 'Incomplete'),
+		(SUB, 'Submission'),
+		(TKO, 'TKO'),
+		(KO, 'KO'),
+		(UNAN_DEC, 'Unanimous Decision'),
+		(SPLIT_DEC, 'Split Decision'),
+		(DRAW, 'Draw'),
+		(NC, 'No Contest')
+	)
+
+	result = models.IntegerField(choices=Result, default=INCOMPLETE)
+
+	def __str__(self):
+		return self.Result[self.result][1]
+
 class Fight_Card(models.Model):
 	title = models.CharField(max_length=127)
 	organization = models.CharField(max_length=64, default='UFC')
