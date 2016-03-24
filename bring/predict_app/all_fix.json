@@ -1,0 +1,202 @@
+[
+  {
+    "fields": {
+      "end_time": "2016-04-10T21:00:00Z",
+      "organization": "UFC",
+      "title": "Rothwell vs. Dos Santos: The UFC travels to Zagreb, Croatia for the first time",
+      "start_time": "2016-04-10T15:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 576335
+  },
+  {
+    "fields": {
+      "end_time": "2016-04-17T03:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2016-04-16T21:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 579776
+  },
+  {
+    "fields": {
+      "end_time": "2016-04-24T05:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2016-04-23T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 579782
+  },
+  {
+    "fields": {
+      "end_time": "2016-05-09T05:00:00Z",
+      "organization": "UFC",
+      "title": "Overeem vs. Arlovski: The UFC travels to Rotterdam, Netherlands for the first time where Alistair Overeem will fight in front of his home crowd against Andrei Arlovski.",
+      "start_time": "2016-05-08T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 576337
+  },
+  {
+    "fields": {
+      "end_time": "2016-05-15T05:00:00Z",
+      "organization": "UFC",
+      "title": "Werdum vs. Miocic: UFC heavyweight champion Fabricio Werdum defends his belt against Stipe Miocic",
+      "start_time": "2016-05-14T23:01:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 580633
+  },
+  {
+    "fields": {
+      "end_time": "2016-05-30T05:00:00Z",
+      "organization": "UFC",
+      "title": "Almeida vs. Garbrandt: The UFC hosts a Las Vegas event headlining bantamweight contenders Thomas Almeida and Cody Garbrandt.",
+      "start_time": "2016-05-29T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 584877
+  },
+  {
+    "fields": {
+      "end_time": "2016-06-05T05:00:00Z",
+      "organization": "UFC",
+      "title": "Rockhold vs. Weidman 2: UFC middleweight champion Luke Rockhold attempts to defend his belt for the first time in a rematch against former champ Chris Weidman.",
+      "start_time": "2016-06-04T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 583140
+  },
+  {
+    "fields": {
+      "end_time": "2016-06-19T05:00:00Z",
+      "organization": "UFC",
+      "title": "MacDonald vs. Thompson: UFC welterweights Rory MacDonald and Stephen Thompson square off when the UFC travels to Ottawa, Canada.",
+      "start_time": "2016-06-18T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 583142
+  },
+  {
+    "fields": {
+      "end_time": "2016-07-09T05:00:00Z",
+      "organization": "UFC",
+      "title": "Team Joanna vs. Team Claudia: UFC women's strawweight champion Joanna Jedrzejczyk Claudia Gadelha",
+      "start_time": "2016-07-08T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 583165
+  },
+  {
+    "fields": {
+      "end_time": null,
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2016-07-09T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 538748
+  },
+  {
+    "fields": {
+      "end_time": "2016-03-20T05:00:00Z",
+      "organization": "UFC",
+      "title": "Hunt vs. Mir: The UFC returns to Brisbane, Australia for the second time.",
+      "start_time": "2016-03-19T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 570181
+  },
+  {
+    "fields": {
+      "end_time": "2016-03-06T05:00:00Z",
+      "organization": "UFC",
+      "title": "McGregor vs. Diaz: UFC featherweight champion Conor McGregor moves up to 170 pounds to face Nate Diaz.",
+      "start_time": "2016-03-05T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 576608
+  },
+  {
+    "fields": {
+      "end_time": "2016-02-28T06:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2016-02-27T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 565504
+  },
+  {
+    "fields": {
+      "end_time": "2016-02-22T05:01:00Z",
+      "organization": "UFC",
+      "title": "Cowboy vs. Cowboy: The UFC returns to Pittsburgh, Pennsylvania and the Consol Energy Center for Fight Night: Cowboy vs. Cowboy.",
+      "start_time": "2016-02-21T22:30:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 572296
+  },
+  {
+    "fields": {
+      "end_time": "2016-02-07T23:00:00Z",
+      "organization": "UFC",
+      "title": "Hendricks vs. Thompson: UFC welterweights Johny Hendricks and Stephen Thompson clash at UFC Fight Night.",
+      "start_time": "2016-02-06T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 573815
+  },
+  {
+    "fields": {
+      "end_time": "2016-01-31T01:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2016-01-30T22:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 568387
+  },
+  {
+    "fields": {
+      "end_time": "2016-01-18T06:00:00Z",
+      "organization": "UFC",
+      "title": "Dillashaw vs. Cruz: UFC bantamweight champion TJ Dillashaw defends his title against Dominick Cruz.",
+      "start_time": "2016-01-17T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 547035
+  },
+  {
+    "fields": {
+      "end_time": "2016-01-03T05:00:00Z",
+      "organization": "UFC",
+      "title": "Lawler vs Condit: UFC welterweight champion Robbie Lawler defends her title against contender Carlos Condit",
+      "start_time": "2016-01-02T23:30:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 510227
+  },
+  {
+    "fields": {
+      "end_time": "2015-12-20T04:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2015-12-19T20:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 510226
+  },
+  {
+    "fields": {
+      "end_time": "2015-12-13T05:00:00Z",
+      "organization": "UFC",
+      "title": "Event Title TBA",
+      "start_time": "2015-12-12T23:00:00Z"
+    },
+    "model": "predict_app.fight_card",
+    "organizations_id": 510223
+  }
+]

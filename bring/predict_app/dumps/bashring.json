@@ -1,0 +1,784 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "ring_user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "fighter"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "method"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "fight_card"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "weight_class"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "user_prediction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "bout"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "predict_app",
+    "model": "boutwinner"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6uiukgr9rca8d902fbmxqnzqf9suhq2n",
+  "fields": {
+    "session_data": "ZTRkNDY1MjQyMjkzZmQwMzE1NTUzN2Q1YzJlMjljMTczMWM1NmIxZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJjMzE4NDdkYmQ0Y2E5NzYxYTJjM2ExYjQ5NDQxMmE1ZGUxOGE2NDUxIn0=",
+    "expire_date": "2016-04-04T21:48:56.083Z"
+  }
+},
+{
+  "model": "predict_app.ring_user",
+  "pk": 1,
+  "fields": {
+    "first_name": "noname",
+    "last_name": "noname",
+    "accuracy": 1.0,
+    "experience": 0,
+    "avatar": "static/menu_images/user1.png"
+  }
+},
+{
+  "model": "predict_app.fighter",
+  "pk": 1,
+  "fields": {
+    "last_name": "chump",
+    "first_name": "weak",
+    "nick_name": "glass jaw",
+    "statid": 1,
+    "fighter_status": true,
+    "image": "static/menu_images/anon_fighter_small.jpg",
+    "wins": 0,
+    "losses": 1,
+    "draws": 0,
+    "ncs": 0,
+    "tkos": 0,
+    "kos": 0,
+    "decs": 0,
+    "subs": 0,
+    "days_layoff": 30,
+    "fudge": 1.0,
+    "spice": 1.0,
+    "batwings": 1,
+    "water": 1.0,
+    "gender": true
+  }
+},
+{
+  "model": "predict_app.fighter",
+  "pk": 2,
+  "fields": {
+    "last_name": "surley",
+    "first_name": "damien",
+    "nick_name": "stone hands",
+    "statid": 3,
+    "fighter_status": true,
+    "image": "static/menu_images/anon_fighter_small.jpg",
+    "wins": 1,
+    "losses": 0,
+    "draws": 0,
+    "ncs": 0,
+    "tkos": 0,
+    "kos": 1,
+    "decs": 0,
+    "subs": 0,
+    "days_layoff": 30,
+    "fudge": 1.0,
+    "spice": 1.0,
+    "batwings": 1,
+    "water": 1.0,
+    "gender": true
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 1,
+  "fields": {
+    "division": 5
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 1,
+  "fields": {
+    "result": 0
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 2,
+  "fields": {
+    "result": 3
+  }
+},
+{
+  "model": "predict_app.fight_card",
+  "pk": 1,
+  "fields": {
+    "title": "liyg",
+    "organization": "UFC",
+    "start_time": "2016-03-30T21:49:10Z",
+    "end_time": "2016-03-22T22:54:40.790Z",
+    "organizations_id": 0
+  }
+},
+{
+  "model": "predict_app.fight_card",
+  "pk": 3,
+  "fields": {
+    "title": "FiestaFight",
+    "organization": "UFC",
+    "start_time": "2016-03-23T22:25:59Z",
+    "end_time": "2016-03-23T22:26:44Z",
+    "organizations_id": 22
+  }
+},
+{
+  "model": "predict_app.bout",
+  "pk": 1,
+  "fields": {
+    "fight_card_id": 1,
+    "fighter1": 1,
+    "fighter2": 2,
+    "method_id": 1,
+    "weight_class": 1,
+    "max_rounds": 3,
+    "fighter1_odds": 100,
+    "fighter2_odds": -100,
+    "bout_importance_on_card": 0
+  }
+},
+{
+  "model": "predict_app.user_prediction",
+  "pk": 1,
+  "fields": {
+    "winner": 2,
+    "method": 2,
+    "round_final": 1,
+    "confidence": 5,
+    "excitement": 5,
+    "attachment": 3,
+    "note": "Second note attempt",
+    "ring_user_id": 1,
+    "bout_id": 1
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add ring_ user",
+    "content_type": 7,
+    "codename": "add_ring_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change ring_ user",
+    "content_type": 7,
+    "codename": "change_ring_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete ring_ user",
+    "content_type": 7,
+    "codename": "delete_ring_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add fighter",
+    "content_type": 8,
+    "codename": "add_fighter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change fighter",
+    "content_type": 8,
+    "codename": "change_fighter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete fighter",
+    "content_type": 8,
+    "codename": "delete_fighter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add method",
+    "content_type": 9,
+    "codename": "add_method"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change method",
+    "content_type": 9,
+    "codename": "change_method"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete method",
+    "content_type": 9,
+    "codename": "delete_method"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add fight_ card",
+    "content_type": 10,
+    "codename": "add_fight_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change fight_ card",
+    "content_type": 10,
+    "codename": "change_fight_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete fight_ card",
+    "content_type": 10,
+    "codename": "delete_fight_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add weight_ class",
+    "content_type": 11,
+    "codename": "add_weight_class"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change weight_ class",
+    "content_type": 11,
+    "codename": "change_weight_class"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete weight_ class",
+    "content_type": 11,
+    "codename": "delete_weight_class"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add user_ prediction",
+    "content_type": 12,
+    "codename": "add_user_prediction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change user_ prediction",
+    "content_type": 12,
+    "codename": "change_user_prediction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete user_ prediction",
+    "content_type": 12,
+    "codename": "delete_user_prediction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add bout",
+    "content_type": 13,
+    "codename": "add_bout"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change bout",
+    "content_type": 13,
+    "codename": "change_bout"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete bout",
+    "content_type": 13,
+    "codename": "delete_bout"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add bout winner",
+    "content_type": 14,
+    "codename": "add_boutwinner"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change bout winner",
+    "content_type": 14,
+    "codename": "change_boutwinner"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete bout winner",
+    "content_type": 14,
+    "codename": "delete_boutwinner"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$HlP47ED7oKS2$cLYDkwDcWz5vPdX9BH204FHisf/wQLAkmI7Kjh0YDqM=",
+    "last_login": "2016-03-21T21:48:56.050Z",
+    "is_superuser": true,
+    "username": "shawnwaldow",
+    "first_name": "",
+    "last_name": "",
+    "email": "shawnwaldow@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2016-03-21T21:48:36.643Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2016-03-21T21:49:12.671Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Fight_Card object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2016-03-22T18:52:45.011Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Fighter object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2016-03-22T18:54:34.786Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Fighter object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2016-03-22T18:55:09.193Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Ring_User object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2016-03-22T19:00:26.039Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Incomplete",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2016-03-22T19:00:36.675Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Men's Flyweight",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2016-03-22T19:00:46.144Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Bout object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2016-03-22T20:42:43.412Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "KO",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2016-03-22T20:54:26.721Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "User_Prediction object",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2016-03-23T22:26:51.992Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "UFC FiestaFight",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+}
+]
