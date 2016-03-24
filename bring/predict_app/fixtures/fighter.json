@@ -1,0 +1,54 @@
+[
+{
+  "model": "predict_app.fighter",
+  "pk": 1,
+  "fields": {
+    "last_name": "chump",
+    "first_name": "weak",
+    "nick_name": "glass jaw",
+    "statid": 1,
+    "fighter_status": true,
+    "image": "static/menu_images/anon_fighter_small.jpg",
+    "wins": 0,
+    "losses": 1,
+    "draws": 0,
+    "ncs": 0,
+    "tkos": 0,
+    "kos": 0,
+    "decs": 0,
+    "subs": 0,
+    "days_layoff": 30,
+    "fudge": 1.0,
+    "spice": 1.0,
+    "batwings": 1,
+    "water": 1.0,
+    "gender": true
+  }
+},
+{
+  "model": "predict_app.fighter",
+  "pk": 2,
+  "fields": {
+    "last_name": "surley",
+    "first_name": "damien",
+    "nick_name": "stone hands",
+    "statid": 3,
+    "fighter_status": true,
+    "image": "static/menu_images/anon_fighter_small.jpg",
+    "wins": 1,
+    "losses": 0,
+    "draws": 0,
+    "ncs": 0,
+    "tkos": 0,
+    "kos": 1,
+    "decs": 0,
+    "subs": 0,
+    "days_layoff": 30,
+    "fudge": 1.0,
+    "spice": 1.0,
+    "batwings": 1,
+    "water": 1.0,
+    "gender": true
+  }
+}
+]
