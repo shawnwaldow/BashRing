@@ -1,0 +1,24 @@
+[
+{
+  "model": "predict_app.fight_card",
+  "pk": 1,
+  "fields": {
+    "title": "liyg",
+    "organization": "UFC",
+    "start_time": "2016-03-30T21:49:10Z",
+    "end_time": "2016-03-22T22:54:40.790Z",
+    "organizations_id": 0
+  }
+},
+{
+  "model": "predict_app.fight_card",
+  "pk": 3,
+  "fields": {
+    "title": "FiestaFight",
+    "organization": "UFC",
+    "start_time": "2016-03-23T22:25:59Z",
+    "end_time": "2016-03-23T22:26:44Z",
+    "organizations_id": 22
+  }
+}
+]

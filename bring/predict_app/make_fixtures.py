@@ -44,7 +44,7 @@ def get_all_data():
             event["model"] = "predict_app.fight_card"
             event["fields"] = {}
             if val["title_tag_line"] and val["short_description"]:
-                event["fields"]["title"] = val["title_tag_line"]+": "+val["short_description"]
+                event["fields"]["title"] = (val["title_tag_line"]+": "+val["short_description"])[0:122] + "..."
             else:
                 event["fields"]["title"] = "Event Title TBA"
             event["fields"]["organization"] = "UFC"
