@@ -1,18 +1,25 @@
+{% extends 'predict_app/base_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+
+
 <!--Base Template opens head-->
 
 
-<title>Bash Ring MMA: "CARD NAME: the greatest ever since the last!"</title>
+<title>Bash Ring MMA: {{ fight_card.title }}</title>
 
 </head>
 
 
 <body>
 
-	<h1>Bash Ring MMA: "CARD NAME: the greatest ever since the last!"</h1>
+	<h1>{{ fight_card.title }}</h1>
 
-	<h3>First_Name "nickname" last_Name vs First_Name "nickname" last_name</h3>
+	<h3>{{ fight_card.fighter1 }} vs {{ fight_card.fighter1 }}</h3>
 
-	<span>fighter_1_odds <img src = "fighter1.png"> vs <img src="fighter2.png">fighter_2_odds</span>
+	<span>Fighter_1_odds<img src = "fighter"> vs <img src="fighter2.png">fighter_2_odds</span>
 
 	<!--<form id="signup" method="post">
                     <input type="text" id="title" placeholder="Post title" required/><br/><br/>
@@ -21,7 +28,4 @@
                 </form>-->
 
 
-</body>
-
-
-</html>
+{% endblock %}
