@@ -1,0 +1,27 @@
+body {	font-family: 'Audiowide', cursive;
+		background-color:gray;
+		background-size: auto 100%;
+		color:white;
+	}
+
+h1 {
+		color: white;
+		font-style: italic;
+}
+
+.huge {
+
+		font-size: 5em;
+		position: 100px 200px;
+		color: purple;
+
+}
+ 
+li {
+		color: yellow;
+}
+
+nav {
+	font-size: .7em;
+	font-family: 'Audiowide', cursive;
+}

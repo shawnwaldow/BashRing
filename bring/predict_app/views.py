@@ -10,18 +10,17 @@ from django.http import JsonResponse
 
 import json
 
-
 from django.shortcuts import render
 
 # Create your views here.
 
-def display_fight_card(request, fight_card_id):
-"""from question details"""
+def display_fight_card(request, fight_card_id=1):
+	"""from question details"""
 	print("passed fight card id", fight_card_id)
 
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
 
-	fight_card = {
+	context = {
 		'fight_card': fight_card,
 	}
 
