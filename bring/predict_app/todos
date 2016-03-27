@@ -50,8 +50,11 @@ todos
 
 Then immeadiate stretch goals:
 
-*HARD or MEDIUM with help. unknown time. Perhaps 16 hours
--further scraping for bout fight card data
+*HARD or MEDIUM with help. unknown time. Perhaps 8 hours
+-further scraping for bout fight card data maybe use fightmatrix.com
 
 *MEDIUM. 6 hours
 -further scraping for fighter info using the sherdog scraper on github
+
+*MEDIUM 4 hours
+-Forum from django
