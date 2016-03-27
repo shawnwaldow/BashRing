@@ -1,4 +1,4 @@
-#python manage.py flush deletes the entire database
+ 	#python manage.py flush deletes the entire database
 from django.db import models
 
 #import stuff for AUTH_USER_MODEL
@@ -125,6 +125,7 @@ class Fight_Card(models.Model):
 	start_time = models.DateTimeField()
 	end_time = 	models.DateTimeField(blank=True, default=datetime.now())
 	organizations_id = models.PositiveIntegerField(default=0)
+	readonly_fields=('id',)
 
 	def __str__(self):
 		return self.organization + " " + self.title

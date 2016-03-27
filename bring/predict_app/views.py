@@ -19,9 +19,11 @@ def display_fight_card(request, fight_card_id=1):
 	print("passed fight card id", fight_card_id)
 
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
+	fighter1 = get_object_or_404(Fighter, pk=1)
+	fighter2 = get_object_or_404(Fighter, pk=2)
 
 	context = {
-		'fight_card': fight_card,
+		'fight_card': fight_card, 'fighter1': fighter1, 'fighter2': fighter2
 	}
 
 	return render(request, 'predict_app/predict_a_card.html', context)
