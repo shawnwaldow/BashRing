@@ -5,31 +5,34 @@ import requests
 #ALL NULLS WITH GRACE!!!
 ##################################
 def get_all_data():
-    dummy_data=[
+    event_dummy_data=[
         {
-            "model": "predict_app.fight_card",
-            "pk": 1,
-            "fields": {
-            "title": "liyg",
+        "model": "predict_app.fight_card",
+        "pk": 1,
+        "fields": {
+            "title": "Rumble Rumble",
+            "short_description": "Dummy description!",
             "organization": "UFC",
+            "organizations_id": 0,
             "start_time": "2016-03-30T21:49:10Z",
-            "end_time": "2016-03-22T22:54:40.790Z",
-            "organizations_id": 0
+            "end_time": "2016-03-22T22:54:40.790Z"
             }
         },
         {
-            "model": "predict_app.fight_card",
-            "pk": 3,
-            "fields": {
-            "title": "FiestaFight",
+        "model": "predict_app.fight_card",
+        "pk": 2,
+        "fields": {
+            "title": "Feral Fight",
+            "short_description": "Claws and all!",
             "organization": "UFC",
+            "organizations_id": 1,
             "start_time": "2016-03-23T22:25:59Z",
-            "end_time": "2016-03-23T22:26:44Z",
-            "organizations_id": 22
+            "end_time": "2016-03-23T22:26:44Z"
             }
-        }
+        },
     ]
  
+
     fighter_dummy_data =[
         {
         "model": "predict_app.fighter",
@@ -87,30 +90,33 @@ def get_all_data():
 
 
 
-    output = dummy_data
+    event_output = event_dummy_data
     fighter_output = fighter_dummy_data
 
-    def get_champ_data():
+    def get_event_data():
+        """Patrick J. McNally's code was the template for this"""
         url = "http://ufc-data-api.ufc.com/api/v1/us/events/"
-        #payload = {'api_key': API_KEY}
 
         r = requests.get(url)
         data = r.json()
-        #version = data["version"]
-        # output = []
+
         for val in data:
             event = {}
-            event["organizations_id"] = val["id"]
             event["model"] = "predict_app.fight_card"
             event["fields"] = {}
-            if val["title_tag_line"] and val["short_description"]:
-                event["fields"]["title"] = (val["title_tag_line"]+": "+val["short_description"])[0:122] + "..."
+            event["fields"]["organizations_id"] = val["id"]
+            if val["title_tag_line"]: 
+                event["fields"]["title"] = (val["title_tag_line"]
             else:
                 event["fields"]["title"] = "Event Title TBA"
+            if val["short_description"]:
+                event["short_description"]=val["short_description"]
+            else:
+                event["short_description"] = " "    
             event["fields"]["organization"] = "UFC"
             event["fields"]["start_time"] = val["event_dategmt"]
             event["fields"]["end_time"] = val["end_event_dategmt"]
-            output.append(event)
+            event_output.append(event)
 
     def get_fighter_data():
         url = "http://ufc-data-api.ufc.com/api/v1/us/fighters"
@@ -119,25 +125,46 @@ def get_all_data():
         data = r.json()
         for val in data:
             fighter = {}
-            fighter["pk"] = val["id"]
             fighter["model"] = "predict_app.fighter"
             fighter["fields"] = {}
             fighter["fields"]["last_name"] = val["last_name"]
             fighter["fields"]["first_name"] = val["first_name"]
             fighter["fields"]["nick_name"] = val[" "]
             fighter["fields"]["statid"] = val["statid"]
+            fighter["fields"]["organizations_id"] = val["id"]
+            fighter["fields"]["sherdog_id"] = 0
             fighter["fields"]["fighter_status"] = (val["fighter_status"] == "Active")
-            fighter["fields"]["image"] = "static/menu_images/anon_fighter_small.jpg"
+            fighter["fields"]["image_url"] = val["thumbnail"]
             fighter["fields"]["wins"] = val["wins"]
             fighter["fields"]["losses"] = val["losses"]
             fighter["fields"]["draws"] = val["draws"]
             fighter["fields"]["ncs"] = 0
+            fighter["fields"]["tkos"] = 0
+            fighter["fields"]["kos"] = 0
+            fighter["fields"]["decs"] = 0
+            fighter["fields"]["subs"] = 0
+            fighter["fields"]["days_layoff"] = 0
+            fighter["fields"]["fudge"] = 0
+            fighter["fields"]["spice"] = 0
+            fighter["fields"]["batwings"] = 0
+            fighter["fields"]["water"] = 0
+            if "women" in val["weight_class"].lower(): 
+                #'f' for female
+                fighter["fields"]["gender"] = False
+            else:
+                #'t' for HE has a little tail
+                fighter["fields"]["gender"] = True
             fighter_output.append(fighter)
 
-    get_champ_data()
+    get_event_data()
+    get_fighter_data()
     
-    with open('Fight_Card', "w") as f:
-        json.dump(output, f, indent=2)
+    with open('fight_card_upload', "w") as f:
+        json.dump(event_output, f, indent=2)
+
+    
+    with open('fighter_data_upload', "w") as f:
+        json.dump(fighter_output, f, indent=2)
 
 if __name__ == '__main__':
     get_all_data()
