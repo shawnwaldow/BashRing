@@ -26,21 +26,21 @@ class Fighter(models.Model):
 	statid = models.PositiveIntegerField(default=0)
 	organizations_id=models.PositiveIntegerField(default=0)
 	sherdog_id=models.PositiveIntegerField(default=0)
-	fighter_status = models.BooleanField()
+	fighter_status = models.BooleanField(blank=True,)
 	image_url = models.CharField(max_length=254, default="static/menu_images/anon_fighter_small.jpg")
 	wins = models.PositiveIntegerField()
 	losses = models.PositiveIntegerField()
 	draws = models.PositiveIntegerField()
-	ncs = models.PositiveIntegerField()
-	tkos = models.PositiveIntegerField()
-	kos = models.PositiveIntegerField()
-	decs = models.PositiveIntegerField()
-	subs = models.PositiveIntegerField(default=0)
-	days_layoff = models.PositiveIntegerField()
-	fudge = models.FloatField(default=1)
-	spice = models.FloatField(default=1)
-	batwings = models.PositiveIntegerField()
-	water = models.FloatField(default=1)
+	ncs = models.PositiveIntegerField(blank=True,)
+	tkos = models.PositiveIntegerField(blank=True,)
+	kos = models.PositiveIntegerField(blank=True,)
+	decs = models.PositiveIntegerField(blank=True,)
+	subs = models.PositiveIntegerField(blank=True,default=0)
+	days_layoff = models.PositiveIntegerField(blank=True,)
+	fudge = models.FloatField(blank=True,default=1)
+	spice = models.FloatField(blank=True,default=1)
+	batwings = models.PositiveIntegerField(blank=True,)
+	water = models.FloatField(blank=True,default=1)
 	gender = models.BooleanField(default=True) #F=Female, T=Male
 	readonly_fields=('id')
 
@@ -52,21 +52,21 @@ class Fighter(models.Model):
 class Weight_Class(models.Model):
 	#CONST
 	#Women's Division
-	ATOM_W = 9
-	STRAW_W = 10
-	FLY_W = 11
-	BANTAM_W = 12
-	FEATHER_W = 13
+	ATOM_W = 0
+	STRAW_W = 1
+	FLY_W = 2
+	BANTAM_W = 3
+	FEATHER_W = 4
 
 	#Men's Division
-	FLY_M = 1
-	BANTAM_M = 2
-	FEATHER_M = 3
-	LIGHT_M = 4
-	WELTER_M = 5
-	MIDDLE_M = 6
-	LIGHT_HEAVY_M = 7
-	HEAVY_M = 8
+	FLY_M = 5
+	BANTAM_M = 6
+	FEATHER_M = 7
+	LIGHT_M = 8
+	WELTER_M = 9
+	MIDDLE_M = 10
+	LIGHT_HEAVY_M = 11
+	HEAVY_M = 12
 
 	Division = (
 
@@ -142,9 +142,9 @@ class Bout(models.Model):
 	fighter2 = models.ForeignKey(Fighter, related_name="fighter_2")
 	method_id = models.ForeignKey(Method)
 	weight_class = models.ForeignKey(Weight_Class)
-	max_rounds = models.PositiveIntegerField(blank=True)
-	fighter1_odds = models.IntegerField(default=100)
-	fighter2_odds = models.IntegerField(default=-100)
+	max_rounds = models.PositiveIntegerField(blank=True, default=3)
+	fighter1_odds = models.IntegerField(blank=True,default=100)
+	fighter2_odds = models.IntegerField(blank=True,default=-100)
 	bout_importance_on_card = models.PositiveIntegerField(default=1)
 
 	def __str__(self):

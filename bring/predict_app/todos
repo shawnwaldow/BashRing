@@ -8,6 +8,7 @@ todos
 
 *EZ, 3 hrs
 -improve dummy data a bit
+-->11:00am=11:55 discovered it isn't simple because the ufc dosent provide very comprehensive api data in json for fighters. Also found an error in my weight class class. fixing that now...
 
 
 *EZ 2 hrs.
