@@ -14,11 +14,11 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from .views import *
+from predict_app import urls as predict_app_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', display_fight_card)
+    url(r'^fight/', include(predict_app_urls))
 ]
