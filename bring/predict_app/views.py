@@ -11,7 +11,7 @@ from django.http import JsonResponse
 import json
 
 from django.shortcuts import render
-from datetime import datetime
+from datetime import datetime, timedelta
 
 #For making all datetimes aware. Must install in venv!
 import pytz
@@ -50,12 +50,19 @@ def display_upcoming_cards(request):
 
 	upcoming=[]
 	for card in fight_cards:
-		if card.start_time > servertime:
+		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
 			upcoming.append(card)
+	
+	upcoming.sort(key=lambda r: r.start_time)
 	print(upcoming)
 	#Make a dict of keys with card number and values as headliner bouts
+	headliners = {}
+	for event in upcoming:
+		headliners[str(event.id)] = 0
 
+	all_bouts = Bout.objects.all()
 
+	print(headliners)
 
 	context = {
 		'now': now
