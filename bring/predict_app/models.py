@@ -24,10 +24,10 @@ class Fighter(models.Model):
 	first_name = models.CharField(max_length=64, default=' ')
 	nick_name =  models.CharField(max_length=64, default=' ')
 	statid = models.PositiveIntegerField(default=0)
-	organization_id=models.PositiveIntegerField(default=0)
+	organizations_id=models.PositiveIntegerField(default=0)
 	sherdog_id=models.PositiveIntegerField(default=0)
 	fighter_status = models.BooleanField()
-	image_url = models.SlugField(default="static/menu_images/anon_fighter_small.jpg")
+	image_url = models.CharField(max_length=254, default="static/menu_images/anon_fighter_small.jpg")
 	wins = models.PositiveIntegerField()
 	losses = models.PositiveIntegerField()
 	draws = models.PositiveIntegerField()
@@ -122,7 +122,7 @@ class Method(models.Model):
 
 class Fight_Card(models.Model):
 	title = models.CharField(max_length=127, default=' ')
-	short_description = models.CharField(max_length=254, default=' ')
+	short_description = models.CharField(max_length=500, default=' ')
 	organization = models.CharField(max_length=63, default='UFC')
 	organizations_id = models.PositiveIntegerField(default=0)
 	#GMT

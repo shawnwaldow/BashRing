@@ -1,11 +1,12 @@
 import json
 import requests
 ###################################
+#YOU MUST DEACTIVATE YOUR VENV FOR THIS TO OPERATE SHAWN!
 #DANGER WILL ROBINSON. WE HAVE YET TO HANDLE
 #ALL NULLS WITH GRACE!!!
 ##################################
 def get_all_data():
-    event_dummy_data=[
+    event_dummy_data = [
         {
         "model": "predict_app.fight_card",
         "pk": 1,
@@ -42,8 +43,10 @@ def get_all_data():
             "first_name": "weak",
             "nick_name": "glass jaw",
             "statid": 1,
-            "fighter_status": true,
-            "image": "static/menu_images/anon_fighter_small.jpg",
+            "organizations_id": 0,
+            "sherdog_id": 0,
+            "fighter_status": True,
+            "image_url": "static/menu_images/anon_fighter_small.jpg",
             "wins": 0,
             "losses": 1,
             "draws": 0,
@@ -57,7 +60,7 @@ def get_all_data():
             "spice": 1.0,
             "batwings": 1,
             "water": 1.0,
-            "gender": true
+            "gender": True
             }
         },
         {
@@ -68,8 +71,10 @@ def get_all_data():
             "first_name": "damien",
             "nick_name": "stone hands",
             "statid": 3,
-            "fighter_status": true,
-            "image": "static/menu_images/anon_fighter_small.jpg",
+            "organizations_id": 0,
+            "sherdog_id": 0,
+            "fighter_status": True,
+            "image_url": "static/menu_images/anon_fighter_small.jpg",
             "wins": 1,
             "losses": 0,
             "draws": 0,
@@ -83,8 +88,8 @@ def get_all_data():
             "spice": 1.0,
             "batwings": 1,
             "water": 1.0,
-            "gender": true
-        }
+            "gender": True
+            }
         }
     ]
 
@@ -106,13 +111,13 @@ def get_all_data():
             event["fields"] = {}
             event["fields"]["organizations_id"] = val["id"]
             if val["title_tag_line"]: 
-                event["fields"]["title"] = (val["title_tag_line"]
+                event["fields"]["title"] = val["title_tag_line"]
             else:
                 event["fields"]["title"] = "Event Title TBA"
             if val["short_description"]:
-                event["short_description"]=val["short_description"]
+                event["fields"]["short_description"]=val["short_description"]
             else:
-                event["short_description"] = " "    
+                event["fields"]["short_description"] = " "    
             event["fields"]["organization"] = "UFC"
             event["fields"]["start_time"] = val["event_dategmt"]
             event["fields"]["end_time"] = val["end_event_dategmt"]
@@ -129,8 +134,11 @@ def get_all_data():
             fighter["fields"] = {}
             fighter["fields"]["last_name"] = val["last_name"]
             fighter["fields"]["first_name"] = val["first_name"]
-            fighter["fields"]["nick_name"] = val[" "]
-            fighter["fields"]["statid"] = val["statid"]
+            fighter["fields"]["nick_name"] = " "
+            if val["statid"]:
+                fighter["fields"]["statid"] = val["statid"]
+            else:
+                fighter["fields"]["statid"] = 0
             fighter["fields"]["organizations_id"] = val["id"]
             fighter["fields"]["sherdog_id"] = 0
             fighter["fields"]["fighter_status"] = (val["fighter_status"] == "Active")
@@ -148,12 +156,17 @@ def get_all_data():
             fighter["fields"]["spice"] = 0
             fighter["fields"]["batwings"] = 0
             fighter["fields"]["water"] = 0
-            if "women" in val["weight_class"].lower(): 
-                #'f' for female
-                fighter["fields"]["gender"] = False
+            
+            if val["weight_class"]:
+                if "Women" in val["weight_class"]: 
+                    #'f' for female
+                    fighter["fields"]["gender"] = False
+                else:
+                    #'t' for HE has a little tail
+                    fighter["fields"]["gender"] = True
             else:
-                #'t' for HE has a little tail
-                fighter["fields"]["gender"] = True
+                    #If the weightclass is null then make it a he. ERROR POSSIBLE
+                    fighter["fields"]["gender"] = True
             fighter_output.append(fighter)
 
     get_event_data()
@@ -163,7 +176,7 @@ def get_all_data():
         json.dump(event_output, f, indent=2)
 
     
-    with open('fighter_data_upload', "w") as f:
+    with open('dump_upload_fighters.json', "w") as f:
         json.dump(fighter_output, f, indent=2)
 
 if __name__ == '__main__':
