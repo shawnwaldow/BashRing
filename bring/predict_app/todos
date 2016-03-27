@@ -1,0 +1,57 @@
+todos
+
+
+*EZ, 2hrs
+-improve db to include more fields like headliner
+11:10
+
+
+*EZ, 3 hrs
+-improve dummy data a bit
+
+
+*EZ 2 hrs.
+-make a page that shows all cards to predict each and the headliner
+
+
+*EZ except for the posting which is medium. 5hrs
+-make a page that shows all the bouts on a card with a button to predict each
+
+
+*MEDIUM probaly only 2 hrs though
+-learn how to filter bouts by card number. later when creating card lists from bouts with card tags we only look at a small pool of bouts?
+
+
+*MEDIUM very similar to pollsite. very important. 6hrs
+-make a page that collects the prediction for a single bout
+
+
+*EZ with help. 3 hrs.
+-add users
+
+
+*Ez if done last. 3 hrs
+-make a page that shows the combined prediction for all users for each card.
+
+
+*EZ or MEDIUM 4 hrs when done towards end after user creation.
+-make a landing page that shows your averages, results, and predictions and a links to do the same for every other user. 
+
+
+
+
+-----30 hrs programming to mvp---
++5 hours data entry.
+
+---->So the truth (2x) is more like 70 hours probably....
+
+
+
+
+Then immeadiate stretch goals:
+
+*HARD or MEDIUM with help. unknown time. Perhaps 16 hours
+-further scraping for bout fight card data
+
+*MEDIUM. 6 hours
+-further scraping for fighter info using the sherdog scraper on github
