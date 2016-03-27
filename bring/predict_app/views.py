@@ -11,6 +11,10 @@ from django.http import JsonResponse
 import json
 
 from django.shortcuts import render
+from datetime import datetime
+
+#For making all datetimes aware. Must install in venv!
+import pytz
 
 # Create your views here.
 
@@ -31,6 +35,33 @@ def display_fight_card(request, fight_card_id=1):
 	}
 
 	return render(request, 'predict_app/predict_a_card.html', context)
+
+def display_upcoming_cards(request):
+	"""display all cards for the next 30 days"""
+	utc=pytz.UTC
+	#Make local to user
+	now = datetime.now()
+	servertime = now
+	
+	servertime = utc.localize(servertime)
+
+	#Make a list of cards in the next 30 days starting with the most immeadiate
+	fight_cards = Fight_Card.objects.all()
+
+	upcoming=[]
+	for card in fight_cards:
+		if card.start_time > servertime:
+			upcoming.append(card)
+	print(upcoming)
+	#Make a dict of keys with card number and values as headliner bouts
+
+
+
+	context = {
+		'now': now
+	}
+
+	return render(request, 'predict_app/display_upcoming_cards.html', context)
 
 def preview_a_bout(a_bout):
 	"""Displays an overview of a bout."""
