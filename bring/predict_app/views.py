@@ -44,14 +44,16 @@ def display_upcoming_cards(request):
 	servertime = now
 	
 	servertime = utc.localize(servertime)
-
+	#use a filter here to pull only cards with the right dates
 	#Make 'upcoming' a list of cards in the next 30 days starting with the most immeadiate
 	fight_cards = Fight_Card.objects.all()
 	upcoming=[]
 	for card in fight_cards:
-		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
+		if (servertime < card.start_time) and (card.start_time < servertime + timedelta(days=32)):
 			upcoming.append(card)
 	
+	#keep the sorted by date instead.
+	#google class Meta django
 	upcoming.sort(key=lambda r: r.start_time)
 	print(upcoming)
 	#Make a dict of keys with card number and values as headliner bouts
@@ -70,6 +72,7 @@ def display_upcoming_cards(request):
 		print(each)
 		for tussle in all_bouts:
 			print("tusslefightcardid:", tussle.fight_card_id.id)
+			#name these weird vars shawn
 			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
 				headliners[each] = tussle
 
