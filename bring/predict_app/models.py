@@ -161,7 +161,7 @@ class User_Prediction(models.Model):
 	excitement = models.PositiveIntegerField()
 	attachment = models.PositiveIntegerField()
 	ring_user_id = models.ForeignKey(Ring_User)
-	bout_id = models.ForeignKey(Bout, default=0)
+	bout_id = models.ForeignKey(Bout, default=0)	
 	#can we make a string here to show user name and each fighter name?!
 
 	def __str__(self):

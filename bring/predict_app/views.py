@@ -45,7 +45,7 @@ def display_upcoming_cards(request):
 	
 	servertime = utc.localize(servertime)
 
-	#Make a list of cards in the next 30 days starting with the most immeadiate
+	#Make 'upcoming' a list of cards in the next 30 days starting with the most immeadiate
 	fight_cards = Fight_Card.objects.all()
 	print(fight_cards)
 	upcoming=[]
@@ -59,26 +59,36 @@ def display_upcoming_cards(request):
 	headliners = {}
 	
 	for event in upcoming:
-		headliners[event] = 0
+		headliners[event.id] = 0
 
 	print(headliners)
 
 	all_bouts = Bout.objects.all()
 
+
+	# making a dict headliners={fight_card_id: headline_bout_obj}
 	for each in headliners.keys():
 		print(each)
 		for tussle in all_bouts:
-			print("fcid:",tussle.fight_card_id.id," evid:", each, " tbimp:", tussle.bout_importance_on_card)
-			if (tussle.fight_card_id == each) and (tussle.bout_importance_on_card == 0):
+			print("tusslefightcardid:", tussle.fight_card_id.id)
+			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
 				headliners[each] = tussle
 
+	#Because i could not get the dictionary keys to resolve when passed
+	#values from an array in the template, we must build up this simple
+	#matrix to hand off instead:
+	#next_30_days[x]=tuple(fight_card_obj, bout_obj)
 
+	next_30_days=[]
+	for event in upcoming:
+		tup = (event, headliners[event.id])
+		next_30_days.append(tup)
 
 
 	print("event id: headline bout id", headliners)
 
 	context = {
-		'now': now
+		'now': now, 'next_30_days': next_30_days, 'upcoming': upcoming
 	}
 
 	return render(request, 'predict_app/display_upcoming_cards.html', context)

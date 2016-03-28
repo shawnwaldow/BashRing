@@ -25,3 +25,13 @@ nav {
 	font-size: .7em;
 	font-family: 'Audiowide', cursive;
 }
+
+section {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a {
+	text-decoration: none;
+}
