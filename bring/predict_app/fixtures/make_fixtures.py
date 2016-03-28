@@ -1,10 +1,17 @@
 import json
 import requests
 ###################################
-#YOU MUST DEACTIVATE YOUR VENV FOR THIS TO OPERATE SHAWN!
+#
 #DANGER WILL ROBINSON. WE HAVE YET TO HANDLE
 #ALL NULLS WITH GRACE!!!
 ##################################
+
+###############################################################################################
+# YOU MUST DEACTIVATE YOUR VENV when running the script! When loading the venv must be turned back on
+#$ python manage.py dumpdata --indent=2 app_name.model_name > app_name/fixtures/file_name.json
+#sets up
+#$ python manage.py loaddata app_name/fixtures/file_name.json
+##############################################################################################
 def get_all_data():
     event_dummy_data = [
         {

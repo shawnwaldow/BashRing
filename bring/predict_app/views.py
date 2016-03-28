@@ -47,7 +47,7 @@ def display_upcoming_cards(request):
 
 	#Make a list of cards in the next 30 days starting with the most immeadiate
 	fight_cards = Fight_Card.objects.all()
-
+	print(fight_cards)
 	upcoming=[]
 	for card in fight_cards:
 		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
@@ -57,12 +57,25 @@ def display_upcoming_cards(request):
 	print(upcoming)
 	#Make a dict of keys with card number and values as headliner bouts
 	headliners = {}
+	
 	for event in upcoming:
-		headliners[str(event.id)] = 0
+		headliners[event] = 0
+
+	print(headliners)
 
 	all_bouts = Bout.objects.all()
 
-	print(headliners)
+	for each in headliners.keys():
+		print(each)
+		for tussle in all_bouts:
+			print("fcid:",tussle.fight_card_id.id," evid:", each, " tbimp:", tussle.bout_importance_on_card)
+			if (tussle.fight_card_id == each) and (tussle.bout_importance_on_card == 0):
+				headliners[each] = tussle
+
+
+
+
+	print("event id: headline bout id", headliners)
 
 	context = {
 		'now': now
