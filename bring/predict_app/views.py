@@ -47,7 +47,6 @@ def display_upcoming_cards(request):
 
 	#Make 'upcoming' a list of cards in the next 30 days starting with the most immeadiate
 	fight_cards = Fight_Card.objects.all()
-	print(fight_cards)
 	upcoming=[]
 	for card in fight_cards:
 		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
