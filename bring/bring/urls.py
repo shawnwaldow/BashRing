@@ -20,5 +20,5 @@ from predict_app import urls as predict_app_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^fight/', include(predict_app_urls))
+    url(r'^bashring/', include(predict_app_urls))
 ]
