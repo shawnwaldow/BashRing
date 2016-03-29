@@ -40,7 +40,6 @@ def display_fight_card(request, fight_card_id=0):
 	fight_card_id = int(fight_card_id)
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
 	
-
 	all_bouts = Bout.objects.all()
 	this_cards_bouts = []
 
