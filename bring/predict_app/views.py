@@ -14,30 +14,43 @@ import json
 from django.shortcuts import render
 from datetime import datetime, timedelta
 
+# for sorted
+import operator
+
 #For making all datetimes aware. Must install in venv!
 import pytz
 
 # Create your views here.
 
-def display_fight_card(request, fight_card_id=1):
+def display_fight_card(request, fight_card_id=58):
 	"""experimenting with django templates. not for production"""
 	print("passed fight card id", fight_card_id)
 
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
+	
+	"""
 	fighter1 = get_object_or_404(Fighter, pk=1)
 	fighter2 = get_object_or_404(Fighter, pk=2)
 	array = [0,1,2,3,4]
 	main_bout = get_object_or_404(Bout, pk=1)
 	bout_string = preview_a_bout(main_bout)
+	"""
+
+	all_bouts = Bout.objects.all()
+	this_cards_bouts = []
+
+	for tussle in all_bouts:
+
+		if tussle.fight_card_id.id == fight_card_id:
+			this_cards_bouts.append(tussle)
+
+	this_cards_bouts.sort(key=operator.attrgetter('bout_importance_on_card'))
+	print(this_cards_bouts)
 
 
 	context = {
 		'fight_card': fight_card, 
-		'fighter1': fighter1, 
-		'fighter2': fighter2, 
-		'array': array, 
-		'bout': get_object_or_404(Bout, pk=1), 
-		'main_bout': main_bout
+		'this_cards_bouts': this_cards_bouts
 	}
 
 	return render(request, 'predict_app/predict_a_card.html', context)
