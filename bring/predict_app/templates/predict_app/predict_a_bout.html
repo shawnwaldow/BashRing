@@ -1,0 +1,33 @@
+{% extends 'predict_app/base_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+
+<!--Base Template opens head-->
+
+
+<title>Bash Ring MMA: Make Your Pick!</title>
+
+</head>
+
+
+<body>
+
+<section>
+
+	<h1>Bash Ring MMA: Make Your Pick!</h1>
+	<h3>UFC:{{ bout.fight_card_id.title }}</h3>
+	<section class='bout'>
+		<h2>{{ bout.fighter1 }} vs. {{bout.fighter2}}</h2>
+		<div><img src='{{bout.fighter1.image_url}}'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='{{bout.fighter2.image_url}}'></div>
+		<a href="/predict_a_card/{{bout.fight_card_id}}"></a><br>
+		W - L - D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W - L - D
+		<h2>{{bout.fighter1.wins}} - {{bout.fighter1.losses}} - {{bout.fighter1.draws}}&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;  
+		{{bout.fighter2.wins}} - {{bout.fighter2.losses}} - {{bout.fighter2.draws}} </h2>
+	</section>
+	
+
+</section>
+
+{% endblock %}

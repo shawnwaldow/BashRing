@@ -22,7 +22,7 @@
 	<section class='bout'>
 		<h2>{{ bout.fighter1 }} vs. {{bout.fighter2}}</h2>
 		<div><img src='{{bout.fighter1.image_url}}'> vs. <img src='{{bout.fighter2.image_url}}'></div>
-		<a href="/predict_a_bout/{{tup.1.id}}">Make your picks</a>
+		<a href="/predict_bout/{{bout.id}}">Make your picks</a>
 	</section>
 	{% endfor %}
 

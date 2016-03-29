@@ -1,4 +1,6 @@
- #we added the last one for url var passing a '?'
+
+"""Do the View."""
+#we added the last one for url var passing a '?'
 from django.shortcuts import render, get_object_or_404
 
 #We added this to handle the HttpResponse in this particular manner.
@@ -21,6 +23,14 @@ import operator
 import pytz
 
 # Create your views here.
+
+def display_predict_bout(request, bout_id):
+	"""Take a bout number from the url and allow a vote"""
+	print("passed bout number", bout_id)
+	bout = get_object_or_404(Bout, pk=bout_id)
+	print(bout)
+	context = {"bout":bout}
+	return render(request, 'predict_app/predict_a_bout.html', context)
 
 def display_fight_card(request, fight_card_id=0):
 	"""experimenting with django templates. ONLY FOR MVP.
