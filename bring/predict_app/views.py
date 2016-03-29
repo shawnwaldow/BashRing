@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404 #we added the last one for url var passing?
+ #we added the last one for url var passing a '?'
+from django.shortcuts import render, get_object_or_404
 
 #We added this to handle the HttpResponse in this particular manner.
 from django.http.response import HttpResponse
@@ -19,7 +20,7 @@ import pytz
 # Create your views here.
 
 def display_fight_card(request, fight_card_id=1):
-	"""from question details"""
+	"""experimenting with django templates. not for production"""
 	print("passed fight card id", fight_card_id)
 
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
@@ -31,13 +32,20 @@ def display_fight_card(request, fight_card_id=1):
 
 
 	context = {
-		'fight_card': fight_card, 'fighter1': fighter1, 'fighter2': fighter2, 'array': array, 'bout': get_object_or_404(Bout, pk=1), 'main_bout': main_bout
+		'fight_card': fight_card, 
+		'fighter1': fighter1, 
+		'fighter2': fighter2, 
+		'array': array, 
+		'bout': get_object_or_404(Bout, pk=1), 
+		'main_bout': main_bout
 	}
 
 	return render(request, 'predict_app/predict_a_card.html', context)
 
 def display_upcoming_cards(request):
-	"""display all cards for the next 30 days"""
+	"""display all cards for the next 30 days. This function badly need filters
+	to improve scalibility. This is a prototype for demonstration purposes 
+	only."""
 	utc=pytz.UTC
 	#Make local to user
 	now = datetime.now()
@@ -45,7 +53,8 @@ def display_upcoming_cards(request):
 	
 	servertime = utc.localize(servertime)
 
-	#Make 'upcoming' a list of cards in the next 30 days starting with the most immeadiate
+	#Make 'upcoming' a list of cards in the next 30 days starting with the most
+	#immeadiate
 	fight_cards = Fight_Card.objects.all()
 	upcoming=[]
 	for card in fight_cards:
@@ -69,7 +78,9 @@ def display_upcoming_cards(request):
 	for each in headliners.keys():
 		print(each)
 		for tussle in all_bouts:
-			print("tusslefightcardid:", tussle.fight_card_id.id)
+			# look at the fight card id of every bout in the db for ones that are
+			# in our headliners dictonary. For these then check to see if their
+			# importance_on_card == 0. The zeroth bouts are the headliners.
 			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
 				headliners[each] = tussle
 

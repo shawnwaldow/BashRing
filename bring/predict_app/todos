@@ -15,13 +15,14 @@ todos
 -make a page that shows all cards to predict each and the headliner
 -->Here we go 2:30pm-10:10pm. Included a couple argr%YmaeERTTH hours.
 
-*EZ distributed 3 hrs
+*EZ distributed 3 hrs (really 6 which is the doubling estimate. That's what it took!)
 -setup minipc as capstone backup.
--->here we go 10:15am
+-->here we go 10:15am For one thing you had to add your new computers home user to postgress. For another you had to install pillow which took a bunch of backing libraries installed outside the venv then you had to be back in the venv and ignore the high google results instructions and simply follow the error message kicked out by django's test server. Finished about 4 pm.
 
 
 *EZ except for the posting which is medium. 5hrs
 -make a page that shows all the bouts on a card with a button to predict each
+-->Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15.
 
 
 *MEDIUM probaly only 2 hrs though
