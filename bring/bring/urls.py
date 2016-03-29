@@ -17,8 +17,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from predict_app import urls as predict_app_urls
+from predict_app.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^bashring/', include(predict_app_urls))
+    url(r'^', include(predict_app_urls))
 ]

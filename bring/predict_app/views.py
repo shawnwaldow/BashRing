@@ -22,19 +22,14 @@ import pytz
 
 # Create your views here.
 
-def display_fight_card(request, fight_card_id=58):
-	"""experimenting with django templates. not for production"""
+def display_fight_card(request, fight_card_id=0):
+	"""experimenting with django templates. ONLY FOR MVP.
+	MUST MUST MUST IMPLEMENT FILTERS INSTEAD"""
 	print("passed fight card id", fight_card_id)
 
+	fight_card_id = int(fight_card_id)
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
 	
-	"""
-	fighter1 = get_object_or_404(Fighter, pk=1)
-	fighter2 = get_object_or_404(Fighter, pk=2)
-	array = [0,1,2,3,4]
-	main_bout = get_object_or_404(Bout, pk=1)
-	bout_string = preview_a_bout(main_bout)
-	"""
 
 	all_bouts = Bout.objects.all()
 	this_cards_bouts = []
@@ -46,7 +41,6 @@ def display_fight_card(request, fight_card_id=58):
 
 	this_cards_bouts.sort(key=operator.attrgetter('bout_importance_on_card'))
 	print(this_cards_bouts)
-
 
 	context = {
 		'fight_card': fight_card, 
@@ -116,10 +110,28 @@ def display_upcoming_cards(request):
 
 	return render(request, 'predict_app/display_upcoming_cards.html', context)
 
-def preview_a_bout(a_bout):
-	"""Displays an overview of a bout."""
+"""def preview_a_bout(a_bout):
+	#Displays an overview of a bout.
 	#fighter1 = get_object_or_404(Fighter, pk=1)
 	#fighter2 = get_object_or_404(Fighter, pk=2)
 
 	bout_span=a_bout.fighter1.last_name+" vs. "+a_bout.fighter2.last_name
-	return bout_span
+	return bout_span"""
+
+"""def garbage(request, fight_card_id=1):
+	#from question details
+	print("passed fight card id", fight_card_id)
+
+	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
+	fighter1 = get_object_or_404(Fighter, pk=1)
+	fighter2 = get_object_or_404(Fighter, pk=2)
+	array = [0,1,2,3,4]
+	main_bout = get_object_or_404(Bout, pk=1)
+	bout_string = preview_a_bout(main_bout)
+
+
+	context = {
+		'fight_card_id': fight_card_id, 'fight_card': fight_card, 'fighter1': fighter1, 'fighter2': fighter2, 'array': array, 'bout': get_object_or_404(Bout, pk=1), 'main_bout': main_bout
+	}
+
+	return render(request, 'predict_app/garbage.html', context)"""
