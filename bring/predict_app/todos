@@ -1,29 +1,31 @@
 todos
 
+the models are done for the database we designed. two api calls partially populate the DB. These two steps took about two weeks of class time, but class had little usable programming time because of turmoil between the instructor and administrators.
 
 *EZ, 2hrs(really 4)
 -improve db to include more fields like headliner
--->11:10-3:22 ended up MEDIUM. No more DB changes unless absolutely necesary.
-
+-->11:10=3:22 ended up MEDIUM. No more DB changes unless absolutely necesary.
+$4.2
 
 *EZ, 3 hrs
 -improve dummy data a bit
 -->11:00am=1:35 discovered it isn't simple because the ufc dosent provide very comprehensive api data in json for fighters. Also found an error in my weight class class. fixing that now... Well it took me 2.5 hours which was less than the 3 I predicted. That's good.
-
+$2.5
 
 *EZ 2 hrs.
 -make a page that shows all cards to predict each and the headliner
--->Here we go 2:30pm-10:10pm. Included a couple argr%YmaeERTTH hours.
+-->Here we go 2:30pm=10:10pm. Included a couple argr%YmaeERTTH hours.
+$6
 
 *EZ distributed 3 hrs (really 6 which is the doubling estimate. That's what it took!)
 -setup minipc as capstone backup.
--->here we go 10:15am For one thing you had to add your new computers home user to postgress. For another you had to install pillow which took a bunch of backing libraries installed outside the venv then you had to be back in the venv and ignore the high google results instructions and simply follow the error message kicked out by django's test server. Finished about 4 pm.
+-->here we go 10:15am=4pm For one thing you had to add your new computers home user to postgress. For another you had to install pillow which took a bunch of backing libraries installed outside the venv then you had to be back in the venv and ignore the high google results instructions and simply follow the error message kicked out by django's test server. Finished about 4 pm.
+$5
 
-
-*EZ except for the posting which is medium. 5hrs
+*EZ 5hrs
 -make a page that shows all the bouts on a card with a button to predict each
--->Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15.
-
+-->7:15=10:15Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15... well i finished the brute force at 8:15 and spent the next two hours troubleshooting the url argument passing. Still have a problem with the use of {% url %} project wide...
+$3
 
 *MEDIUM probaly only 2 hrs though
 -learn how to filter bouts by card number. later when creating card lists from bouts with card tags we only look at a small pool of bouts?
@@ -35,6 +37,7 @@ todos
 
 *EZ with help. 3 hrs.
 -add users
+-->11:19 working casually.11:43 breakingdown
 
 
 *Ez if done last. 3 hrs
@@ -52,7 +55,7 @@ todos
 
 ---->So the truth (2x) is more like 70 hours probably....
 
-
+----> 21 hours in tuesday morning. about 18-36 hours of solid programming left.
 
 
 Then immeadiate stretch goals:
