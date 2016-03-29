@@ -14,15 +14,18 @@
 
 <body>
 
+<section>
+
 	<h1>UFC:{{ fight_card.title }}</h1>
 
 	{% for bout in this_cards_bouts %}
 	<section class='bout'>
 		<h2>{{ bout.fighter1 }} vs. {{bout.fighter2}}</h2>
 		<div><img src='{{bout.fighter1.image_url}}'> vs. <img src='{{bout.fighter2.image_url}}'></div>
-		<a href="fixme">Make your picks</a>
+		<a href="/predict_a_bout/{{tup.1.id}}">Make your picks</a>
 	</section>
 	{% endfor %}
 
+</section>
 
 {% endblock %}

@@ -24,8 +24,8 @@ $5
 
 *EZ 5hrs
 -make a page that shows all the bouts on a card with a button to predict each
--->7:15=10:15Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15... well i finished the brute force at 8:15 and spent the next two hours troubleshooting the url argument passing. Still have a problem with the use of {% url %} project wide...
-$3
+-->7:15=10:15Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15... well i finished the brute force at 8:15 and spent the next two hours troubleshooting the url argument passing. Still have a problem with the use of {% url %} project wide... Fixed the url problem. 1 hour with 20 minutes of chris's help.
+$4
 
 *MEDIUM probaly only 2 hrs though
 -learn how to filter bouts by card number. later when creating card lists from bouts with card tags we only look at a small pool of bouts?
@@ -33,19 +33,23 @@ $3
 
 *MEDIUM very similar to pollsite. very important. 6hrs
 -make a page that collects the prediction for a single bout
+-->here we go 11am...
 
 
 *EZ with help. 3 hrs.
--add users
+-add users. according to chris: the sticking point is integrating users and the things they can do into the finished product you already have.
 -->11:19 working casually.11:43 breakingdown
 
 
-*Ez if done last. 3 hrs
+*EZ if done last. 3 hrs-6 hrs
 -make a page that shows the combined prediction for all users for each card.
 
 
 *EZ or MEDIUM 4 hrs when done towards end after user creation.
 -make a landing page that shows your averages, results, and predictions and a links to do the same for every other user. 
+
+*EZ 1hr
+-insert some trivial javascript
 
 
 

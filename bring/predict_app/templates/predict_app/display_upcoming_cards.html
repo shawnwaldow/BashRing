@@ -14,16 +14,22 @@
 
 <body>
 
+<section>
+
 	<h1>Bash Ring MMA: Upcoming Cards {{ now|date:"E j" }}</h1>
 
 	{% for tup in next_30_days %}
+	<!-- Each tup is a tuple with (aFightCard, aBout)-->
 	<section class='event'>
 		<h2>{{ tup.0.organization }}: {{tup.0.title}}</h2>
 		<span class='cards_time'>{{ tup.0.start_time }}</span>
 		<div><img src='{{tup.1.fighter1.image_url}}'> vs. <img src='{{tup.1.fighter2.image_url}}'></div>
 		
-		<a href="{% comment %}{% url 'fightcard/58' %}{% endcomment %}">Make your picks</a>
+		<a href="/fightcard/{{tup.0.id}}">Make your picks</a>
 	</section>
+	
+	
 	{% endfor %}
 
+</section>
 {% endblock %}
