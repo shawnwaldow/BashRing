@@ -128,7 +128,7 @@ class Fight_Card(models.Model):
 	#GMT
 	start_time = models.DateTimeField()
 	end_time = 	models.DateTimeField(blank=True, default=datetime.now())
-	readonly_fields=('id')
+	
 
 
 	def __str__(self):
@@ -146,6 +146,7 @@ class Bout(models.Model):
 	fighter1_odds = models.IntegerField(blank=True,default=100)
 	fighter2_odds = models.IntegerField(blank=True,default=-100)
 	bout_importance_on_card = models.PositiveIntegerField(default=1)
+
 
 	def __str__(self):
 		return str(self.fight_card_id) +"'s bout: "+ str(self.fighter1) + " vs. "+ str(self.fighter2)

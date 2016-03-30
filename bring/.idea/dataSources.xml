@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2390652056">
+    <data-source source="LOCAL" name="PostgreSQL - bashring@localhost" uuid="8aa1032b-4c33-47f9-9e71-a1251219db11">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bashring</jdbc-url>
+    </data-source>
+  </component>
+</project>
