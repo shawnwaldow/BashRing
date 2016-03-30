@@ -10,10 +10,9 @@ from django.http.response import HttpResponse
 from .models import Fight_Card, Fighter, Bout
 
 from django.http import JsonResponse
-
 import json
-
 from django.shortcuts import render
+
 from datetime import datetime, timedelta
 
 # for sorted
@@ -119,28 +118,43 @@ def display_upcoming_cards(request):
 
 	return render(request, 'predict_app/display_upcoming_cards.html', context)
 
-"""def preview_a_bout(a_bout):
-	#Displays an overview of a bout.
-	#fighter1 = get_object_or_404(Fighter, pk=1)
-	#fighter2 = get_object_or_404(Fighter, pk=2)
+def submit_vote(request):
+	"""Handles vote submissions via AJAX."""
 
-	bout_span=a_bout.fighter1.last_name+" vs. "+a_bout.fighter2.last_name
-	return bout_span"""
+	if request.method == 'POST':
+		print(request.body)
+		#decode request body from bytecode to normal
+		data_json = request.body.decode('utf-8')
+		print("suck-cess-pool", data_json)
+	# 	#turn the json string into a python object
+	# 	data = json.loads(data_json)
 
-"""def garbage(request, fight_card_id=1):
-	#from question details
-	print("passed fight card id", fight_card_id)
+	# 	# Get the choice at that id
+	# 	choice = Choice.objects.get(pk=int(data['choice_id']))
 
-	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
-	fighter1 = get_object_or_404(Fighter, pk=1)
-	fighter2 = get_object_or_404(Fighter, pk=2)
-	array = [0,1,2,3,4]
-	main_bout = get_object_or_404(Bout, pk=1)
-	bout_string = preview_a_bout(main_bout)
+	# 	# Increment the votes of the choice by 1
+	# 	choice.votes += 1
+
+	# 	#save the updated objec choice to db
+	# 	choice.save()
+
+	# 	#Get all the choices for the question just voted on
+	# 	question = Question.objects.get(pk=int(data['question_id']))
+
+	# 	question_choices = question.choice_set.all()
+
+	# 	response = []
+
+	# 	#loop through choices and dictionize
+	# 	for choice in question_choices:
+	# 		c_dict = {
+	# 			'id': choice.id,
+	# 			'text': choice.choice_text,
+	# 			'votes': choice.votes
+	# 		}
 
 
-	context = {
-		'fight_card_id': fight_card_id, 'fight_card': fight_card, 'fighter1': fighter1, 'fighter2': fighter2, 'array': array, 'bout': get_object_or_404(Bout, pk=1), 'main_bout': main_bout
-	}
+	# 		response.append(c_dict)
+		
 
-	return render(request, 'predict_app/garbage.html', context)"""
+	# return JsonResponse({'data': response})

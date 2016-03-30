@@ -31,29 +31,25 @@ $4
 -learn how to filter bouts by card number. later when creating card lists from bouts with card tags we only look at a small pool of bouts?
 
 
-*MEDIUM very similar to pollsite. very important. 6hrs
+*MEDIUM very similar to pollsite. very important. 6hrs (doubles to 12)
 -make a page that collects the prediction for a single bout
--->here we go 11am...12:10 lunch 1:10-1:40
+-->here we go 11am...12:10 chuncked out essentail data display. lunch 1:10-1:40 2:30-4:30 5:30-6:00 9:30-10:30 adapted and abandoned a pretty javascript bar display 3.5 hours digression.10:30-1:30 adapted pollsite to data collection. Semi-successful but have a weird bug where the page submits automatically. We are at 7.5 hours which is still shy of the the bad case.--->Get help. If fix easy then load the json to DB how? 3hrs?
 
-*EZ with help 2hrs
--implement bootstrap (with heroic features template)
--->1:40-2:30
 
 
 *EZ with help. 3 hrs.
--add users. according to chris: the sticking point is integrating users and the things they can do into the finished product you already have.
--->11:19 working casually.11:43 breakingdown
-
-
-*EZ if done last. 3 hrs-6 hrs
--make a page that shows the combined prediction for all users for each card.
-
+-ADD USERS. according to chris: the sticking point is integrating users and the things they can do into the finished product you already have.
+-->11:19 working casually.11:43 breakingdown 
 
 *EZ or MEDIUM 4 hrs when done towards end after user creation.
--make a landing page that shows your averages, results, and predictions and a links to do the same for every other user. 
+-make a LANDING. Must calc results of past predictions. that shows your averages, results, and predictions and a links to do the same for every other user. 
 
-*EZ 1hr
--insert some trivial javascript
+*EZ 1 hr
+shows the AGRAGOREKRATOS for all users for each card.
+
+*EZ but time 4hrs
+Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions corresponding for three users. Then enter fake results. OR push a realcard up in starttime after preserving data tables.
+
 
 
 
@@ -63,10 +59,20 @@ $4
 
 ---->So the truth (2x) is more like 70 hours probably....
 
-----> 21 hours in tuesday morning. about 18-36 hours of solid programming left.
+----> 21 hours in by tuesday morning. about 18-36 hours of solid programming left. 
+
+---> Wee hours after Tuesday. Only got 10 solid hours in today. Added some must items for MVP: 15-30 hours left
+
+
 
 
 Then immeadiate stretch goals:
+
+
+*EZ with help 2hrs
+-implement BOOTSTRAP (with heroic features template)
+-->1:40-2:30
+
 
 *HARD or MEDIUM with help. unknown time. Perhaps 8 hours
 -further scraping for bout fight card data maybe use fightmatrix.com
