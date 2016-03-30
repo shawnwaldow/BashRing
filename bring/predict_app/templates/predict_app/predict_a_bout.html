@@ -6,9 +6,7 @@
 
 <!--Base Template opens head-->
 
-<!--JQuery survey by KurtWM http://codepen.io/KurtWM/pen/KzksL-->
-<link rel="stylesheet" type="text/css" href="{%static 'predict_app/survey.css' %}">
-<!--JQuery survey by KurtWM http://codepen.io/KurtWM/pen/KzksL-->
+
 
 
 <title>Bash Ring MMA: Make Your Pick!</title>
@@ -29,23 +27,10 @@
 		<h2>{{bout.fighter1.wins}} - {{bout.fighter1.losses}} - {{bout.fighter1.draws}}&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;  
 		{{bout.fighter2.wins}} - {{bout.fighter2.losses}} - {{bout.fighter2.draws}} </h2>
 
-<!--JQuery survey by KurtWM http://codepen.io/KurtWM/pen/KzksL-->
-<form>
-    <ol id="survey1" class="survey">
-  <li class="question" title="Confidence">I am confident in my prediction.</li>
-  <li class="question" title="Attachment">I am attached to the outcome of the fight.</li>
-  <li class="question" title="Excitement">I am excited about the matchup.</li>
-</ol>
-</form>
-<!--End JQuery survey by KurtWM http://codepen.io/KurtWM/pen/KzksL-->
 
-	</section>
-	
 
-</section>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="{% static 'predict_app/survey.js' %}"></script>
 
 {% endblock %}
