@@ -133,12 +133,27 @@ def submit_vote(request):
 		#Work with the info in the json object to make sure it is in the right form to instantiate a new User_Prediction.
 		#Is this the best place to do this?
 		#Work back to adding round final and also sub to the template, js, and here.
+		
+		###Ack go back and redesign the model to do away with this.
+		dict_const_to_pk={
+			'SUB':3,
+			'TKO':5, 
+			'KO':2,
+			'UNAN_DEC':7,
+			'SPLIT_DEC':8,
+			'DRAW':4,
+			'NC':6,
+			'INCOMPLETE':1
+			}
+
 		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
-		usersMethod = get_object_or_404(Method, pk=1)
+		usersMethod = get_object_or_404(Method, pk=dict_const_to_pk[data['method']])
+		print("methd", usersMethod)
 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
 		print("OK BOUT",usersBout)
 		aUser = get_object_or_404(Ring_User, pk=1) 
 		print("OK user",aUser)
+
 
 		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, round_final=3, confidence=data['confidence'], excitement=data['excitement'], attachment=data['attachment'], bout_id = usersBout, ring_user_id = aUser)
 		aPrediction.save()
