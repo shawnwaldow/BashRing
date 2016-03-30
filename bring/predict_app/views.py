@@ -136,9 +136,11 @@ def submit_vote(request):
 		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
 		usersMethod = get_object_or_404(Method, pk=1)
 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
-		auser = get_object_or_404(Ring_User, pk=1) 
+		print("OK BOUT",usersBout)
+		aUser = get_object_or_404(Ring_User, pk=1) 
+		print("OK user",aUser)
 
-		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, round_final=3, confidence=data['confidence'], excitement=data['excitement'], attachment=usersBout,)
+		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, round_final=3, confidence=data['confidence'], excitement=data['excitement'], attachment=data['attachment'], bout_id = usersBout, ring_user_id = aUser)
 		aPrediction.save()
 		print(aPrediction)
 
