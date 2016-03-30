@@ -3,7 +3,7 @@
   position: relative;
   display: table;
   width: 100%; /*height: 500px;*/
-  max-width: 640px;
+  max-width: 320px;
   border-collapse: separate !important;
   border-spacing: 1px !important;
 }
@@ -86,7 +86,7 @@ ol.survey li .opinion-responses .response-choice input[type=radio], ol.survey li
 .scores
 {
   width: 100%;
-  height: 400px;
+  height: 250px;
   position: relative;
 }
 

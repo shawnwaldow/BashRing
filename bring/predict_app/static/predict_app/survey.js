@@ -13,8 +13,8 @@
       defaults = {
         responseRange: 5,
         topNumber: 3,
-        lowOpinionAnswer: 'Least like me',
-        highOpinionAnswer: 'Most like me'
+        lowOpinionAnswer: 'Least',
+        highOpinionAnswer: 'Most'
       };
 
       scores = []; // Creates an empty scores array.
@@ -119,7 +119,7 @@
           + $list.attr('id') 
           + '" class="scores"></div>');
         $list.after('<input type="button" id="submitBtn" class="button btnStyle" ' 
-          + 'value="Show My Gifts" />');
+          + 'value="Post Your Call" />');
 
         $('#scores-' + $list.attr('id')).hide();
 
@@ -262,6 +262,6 @@
 
 var disciplines = $('#survey1').numericScale({
   'responseRange' : 5,
-  'lowOpinionAnswer' : 'Least like me',
-  'highOpinionAnswer' : 'Most like me'
+  'lowOpinionAnswer' : 'Least',
+  'highOpinionAnswer' : 'Most'
 });
