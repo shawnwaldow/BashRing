@@ -1,11 +1,11 @@
 console.log("hello bitch")
 
-window.onload = function(){
+//window.onload = function(){
 
 	document.getElementById('bout_vote').addEventListener('submit', votingSubmission);
 
 
-};
+//};
 
 function votingSubmission(event){
 	event.preventDefault();
@@ -41,13 +41,14 @@ function votingSubmission(event){
 	});
 
 	//build an xhttp request
-	var csfrToken = form.querySelector("[name='csrfmiddlewaretoken']").value;
+	var csrfToken = form.querySelector("[name='csrfmiddlewaretoken']").value;
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'submit_vote', true);
 	xhr.onload = votingSuccess;
 	
 	xhr.setRequestHeader('X-CSRFToken', csrfToken);
 
+	console.log(jsonData);
 	xhr.send(jsonData);
 
 }

@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 
 #Allow getting things from DB
-from .models import Fight_Card, Fighter, Bout
+from .models import Fight_Card, Fighter, Bout, User_Prediction, Method, Ring_User
 
 from django.http import JsonResponse
 import json
@@ -126,35 +126,48 @@ def submit_vote(request):
 		#decode request body from bytecode to normal
 		data_json = request.body.decode('utf-8')
 		print("suck-cess-pool", data_json)
-	# 	#turn the json string into a python object
-	# 	data = json.loads(data_json)
 
-	# 	# Get the choice at that id
-	# 	choice = Choice.objects.get(pk=int(data['choice_id']))
+		#turn the json string into a python object
+		data = json.loads(data_json)
 
-	# 	# Increment the votes of the choice by 1
-	# 	choice.votes += 1
+		#Work with the info in the json object to make sure it is in the right form to instantiate a new User_Prediction.
+		#Is this the best place to do this?
+		#Work back to adding round final and also sub to the template, js, and here.
+		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
+		usersMethod = get_object_or_404(Method, pk=1)
+		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
+		auser = get_object_or_404(Ring_User, pk=1) 
 
-	# 	#save the updated objec choice to db
-	# 	choice.save()
+		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, round_final=3, confidence=data['confidence'], excitement=data['excitement'], attachment=usersBout,)
+		aPrediction.save()
+		print(aPrediction)
 
-	# 	#Get all the choices for the question just voted on
-	# 	question = Question.objects.get(pk=int(data['question_id']))
+		# # Get the choice at that id
+		# choice = Choice.objects.get(pk=int(data['choice_id']))
 
-	# 	question_choices = question.choice_set.all()
+		# # Increment the votes of the choice by 1
+		# choice.votes += 1
 
-	# 	response = []
+		# #save the updated objec choice to db
+		# choice.save()
 
-	# 	#loop through choices and dictionize
-	# 	for choice in question_choices:
-	# 		c_dict = {
-	# 			'id': choice.id,
-	# 			'text': choice.choice_text,
-	# 			'votes': choice.votes
-	# 		}
+		# #Get all the choices for the question just voted on
+		# question = Question.objects.get(pk=int(data['question_id']))
+
+		# question_choices = question.choice_set.all()
+
+		response = ["pickles", "mayo", "mysery meat"]
+
+		# #loop through choices and dictionize
+		# for choice in question_choices:
+		# 	c_dict = {
+		# 		'id': choice.id,
+		# 		'text': choice.choice_text,
+		# 		'votes': choice.votes
+		# 	}
 
 
-	# 		response.append(c_dict)
+		# 	response.append(c_dict)
 		
 
-	# return JsonResponse({'data': response})
+	return JsonResponse({'data': response})
