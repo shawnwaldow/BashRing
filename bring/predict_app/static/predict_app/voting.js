@@ -1,11 +1,11 @@
 console.log("hello bitch")
 
-//window.onload = function(){
-
-	document.getElementById('bout_vote').addEventListener('submit', votingSubmission);
 
 
-//};
+document.getElementById('bout_vote').addEventListener('submit', votingSubmission);
+
+
+
 
 function votingSubmission(event){
 	event.preventDefault();
@@ -61,7 +61,10 @@ function votingSuccess(response) {
 		
 		//translate data from json
 		var data = JSON.parse(data_json);
-		console.log(data);
+		console.log(response.target.response);
+		console.log("data",data)
+		url="http://127.0.0.1:8000/fightcard/" + data.data.toString(); 
+		document.location.assign(url)
 
 		//Post the voting results!!
 		//postResults(data.data)

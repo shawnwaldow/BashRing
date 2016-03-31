@@ -14,7 +14,7 @@ class Ring_User(models.Model):
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
 	avatar = models.ImageField(default="static/menu_images/user1.png",upload_to="avatar_images")
-	readonly_fields=('id')
+	
 	def __str__(self):
 		return self.first_name+" "+self.last_name
 
@@ -154,7 +154,6 @@ class Bout(models.Model):
 
 
 class User_Prediction(models.Model):
-	#bout_id = models.ForeignKey(Bout)
 	winner = models.ForeignKey(Fighter)
 	method = models.ForeignKey(Method)
 	round_final = models.PositiveIntegerField()

@@ -37,6 +37,7 @@ $4
 
 *EZ 1 hr
 -Learn how to interact with postgres directly and or modify admin page more. Currently locked out somehow. This should actually be a stretch goal.
+-->.75 hour chris set me up with pycharm and gave me access to a different postgres DB.
 
 *EZ with help. 3 hrs.
 -ADD USERS. according to chris: the sticking point is integrating users and the things they can do into the finished product you already have.

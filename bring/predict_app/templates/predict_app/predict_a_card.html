@@ -22,7 +22,13 @@
 	<section class='bout'>
 		<h2>{{ bout.fighter1 }} vs. {{bout.fighter2}}</h2>
 		<div><img src='{{bout.fighter1.image_url}}'> vs. <img src='{{bout.fighter2.image_url}}'></div>
-		<a href="/predict_bout/{{bout.id}}">Make your picks</a>
+		<a href="/predict_bout/{{bout.id}}">Make your picks</a><br>
+		<div id="predictions">
+			  {% for prediction in bout.user_prediction_set.all %}
+				{{prediction.ring_user_id.last_name}} picked {{prediction.winner.last_name}} by {{prediction.method}}.<br>
+
+			  {% endfor %}
+		</div>
 	</section>
 	{% endfor %}
 

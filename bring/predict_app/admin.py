@@ -19,7 +19,17 @@ class BoutAdmin(admin.ModelAdmin):
 	def id(self, obj):
 		return obj.id
 
-admin.site.register(Ring_User)
+class Ring_User_Admin(admin.ModelAdmin):
+	list_display = [
+		'first_name',
+		'last_name',
+		'accuracy',
+		'experience',
+		'avatar',
+		'id'
+		]
+
+admin.site.register(Ring_User, Ring_User_Admin)
 admin.site.register(Fighter)
 admin.site.register(Method)
 admin.site.register(Fight_Card)

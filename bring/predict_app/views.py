@@ -50,6 +50,11 @@ def display_fight_card(request, fight_card_id=0):
 	this_cards_bouts.sort(key=operator.attrgetter('bout_importance_on_card'))
 	print(this_cards_bouts)
 
+	for bout in this_cards_bouts:
+		#reverse lookup usuing queryset object
+		print(bout.user_prediction_set.all())
+
+
 	context = {
 		'fight_card': fight_card, 
 		'this_cards_bouts': this_cards_bouts
@@ -159,32 +164,9 @@ def submit_vote(request):
 		aPrediction.save()
 		print(aPrediction)
 
-		# # Get the choice at that id
-		# choice = Choice.objects.get(pk=int(data['choice_id']))
+		response = usersBout.fight_card_id.id
 
-		# # Increment the votes of the choice by 1
-		# choice.votes += 1
-
-		# #save the updated objec choice to db
-		# choice.save()
-
-		# #Get all the choices for the question just voted on
-		# question = Question.objects.get(pk=int(data['question_id']))
-
-		# question_choices = question.choice_set.all()
-
-		response = ["pickles", "mayo", "mysery meat"]
-
-		# #loop through choices and dictionize
-		# for choice in question_choices:
-		# 	c_dict = {
-		# 		'id': choice.id,
-		# 		'text': choice.choice_text,
-		# 		'votes': choice.votes
-		# 	}
-
-
-		# 	response.append(c_dict)
+		
 		
 
 	return JsonResponse({'data': response})
