@@ -27,17 +27,18 @@ $5
 -->7:15=10:15Here we go. Going to try this using brute force without filters for 2 solid hours. Will redirect to learning filters if I am not almost done by 9:15... well i finished the brute force at 8:15 and spent the next two hours troubleshooting the url argument passing. Still have a problem with the use of {% url %} project wide... Fixed the url problem. 1 hour with 20 minutes of chris's help.
 $4
 
-*MEDIUM probaly only 2 hrs though
--learn how to filter bouts by card number. later when creating card lists from bouts with card tags we only look at a small pool of bouts?
-
-
 *MEDIUM very similar to pollsite. very important. 6hrs (doubles to 12)
 -make a page that collects the prediction for a single bout
--->here we go 11am...12:10 chuncked out essentail data display. lunch 1:10-1:40 2:30-4:30 5:30-6:00 9:30-10:30 adapted and abandoned a pretty javascript bar display 3.5 hours digression.10:30-1:30 adapted pollsite to data collection. Semi-successful but have a weird bug where the page submits automatically. We are at 7.5 hours which is still shy of the the bad case.--->Get help. If fix easy then load the json to DB how? 3hrs? Well it took 3 hours to get unstuck and do 90% of the handing things from JS and JSON with ajax to the view controller and instantiating a new user_prediction. move round_won prediction to stretch goals. Now fix the fact that win by sub got left out. Then figure out how to get at the methods const objects gracefully. Then add a indication to the two prediction pages that a particular bout has been predicted. Now at 10 hours. But it looks like we will finish 
+-->here we go 11am...12:10 chuncked out essentail data display. lunch 1:10-1:40 2:30-4:30 5:30-6:00 9:30-10:30 adapted and abandoned a pretty javascript bar display 3.5 hours digression.10:30-1:30 adapted pollsite to data collection. Semi-successful but have a weird bug where the page submits automatically. We are at 7.5 hours which is still shy of the the bad case.--->Get help. If fix easy then load the json to DB how? 3hrs? Well it took 3 hours to get unstuck and do 90% of the handing things from JS and JSON with ajax to the view controller and instantiating a new user_prediction. move round_won prediction to stretch goals. Now fix the fact that win by sub got left out. Then figure out how to get at the methods const objects gracefully. Then add a indication to the two prediction pages that a particular bout has been predicted. Now at 10 hours. But it looks like we will finish. 7:02 finished. 13hrs total!
+$13
 
 *EZ 1 hr
 -Learn how to interact with postgres directly and or modify admin page more. Currently locked out somehow. This should actually be a stretch goal.
--->.75 hour chris set me up with pycharm and gave me access to a different postgres DB.
+-->.75 hour chris set me up with pycharm and gave me access to a different postgres DB. Admin page is now wayyyyy better
+$1.5
+
+
+???You keep forgetting to implement boutwinner...
 
 *EZ with help. 3 hrs.
 -ADD USERS. according to chris: the sticking point is integrating users and the things they can do into the finished product you already have.
@@ -51,8 +52,16 @@ shows the AGRAGOREKRATOS for all users for each card.
 
 *EZ but time 4hrs
 Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions corresponding for three users. Then enter fake results. OR push a realcard up in starttime after preserving data tables.
+-->9:11pm-10:11... add some clark griswald predictions?
 
+*MEDIUM probaly only 2 hrs though
+-REFACTOR display card and display bouts to use more filters less for loops
 
+*README 1hr
+
+*Project Proposal 1hr
+
+*credit and link UFC and Sherdog
 
 
 
@@ -65,7 +74,7 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 
 ---> Wee hours after Tuesday. Only got 10 solid hours in today. Added some must items for MVP: 15-30 hours left
 
-
+--->Wednesday Eve: 37hours in since this todo list created. 15-30 hours still? Well we added the readme and proposal polishing (2-4 hours). And the actual voting went over time. And we spent a couple hours learning about different viewers for the underlying database.
 
 
 Then immeadiate stretch goals:
