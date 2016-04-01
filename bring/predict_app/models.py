@@ -3,6 +3,8 @@ from django.db import models
 
 #import stuff for AUTH_USER_MODEL
 from django.conf import settings
+#Only necesarry when extending User as i do here with Ring_User
+from django.contrib.auth.models import User
 
 from datetime import datetime
 # Create your models here.
@@ -13,10 +15,12 @@ class Ring_User(models.Model):
 	last_name = models.CharField(max_length=64, default='noname')
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
-	avatar = models.ImageField(default="static/menu_images/user1.png",upload_to="avatar_images")
-	
+	#SECURITY RISK? FIX THIS
+	avatar = models.CharField(max_length=255, default="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/800x480-Y_Ddraig_Goch.png/330px-800x480-Y_Ddraig_Goch.png")
+	user_id = models.ForeignKey(User, null=True, blank=True)
+
 	def __str__(self):
-		return self.first_name+" "+self.last_name
+		return self.last_name +" " + self.first_name
 
 
 class Fighter(models.Model):
@@ -152,6 +156,9 @@ class Bout(models.Model):
 	def __str__(self):
 		return str(self.fight_card_id) +"'s bout: "+ str(self.fighter1) + " vs. "+ str(self.fighter2)
 
+	def declare_winner(self, method_id, fighter):
+		pass
+		#		if method_id != 'Draw' or 'No Contest':
 
 
 class User_Prediction(models.Model):

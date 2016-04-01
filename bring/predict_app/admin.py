@@ -26,10 +26,14 @@ class Ring_User_Admin(admin.ModelAdmin):
 		'accuracy',
 		'experience',
 		'avatar',
-		'id'
+		'id',
+		'user_id'
 		]
+	def id(self, obj):
+		return obj.id
 
-admin.site.register(Ring_User, Ring_User_Admin)
+
+admin.site.register(Ring_User,Ring_User_Admin)
 admin.site.register(Fighter)
 admin.site.register(Method)
 admin.site.register(Fight_Card)
