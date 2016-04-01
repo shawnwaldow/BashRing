@@ -21,5 +21,8 @@ from predict_app.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/register/', display_register), #Peewee baked in regis
+    url(r'^accounts/', include('django.contrib.auth.urls')),  #Peewee baked in regis
     url(r'^', include(predict_app_urls))
+
 ]
