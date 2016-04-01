@@ -57,6 +57,8 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 *MEDIUM probaly only 2 hrs though
 -REFACTOR display card and display bouts to use more filters less for loops
 
+*FIX error with url length for avatars
+
 *README 1hr
 
 *Project Proposal 1hr
@@ -65,9 +67,11 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 
 *HARD recover past commits. 
 
+*FIX THE UNAN DEC ERROR
 
 *Convert all tabs to spaces
 
+*Send ransom and patrick a link to the user repo
 
 -----30 hrs programming to mvp---
 +5 hours data entry.

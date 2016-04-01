@@ -1,5 +1,3 @@
-console.log("hello bitch")
-
 
 
 document.getElementById('bout_vote').addEventListener('submit', votingSubmission);

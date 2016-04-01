@@ -32,6 +32,21 @@ class Ring_User_Admin(admin.ModelAdmin):
 	def id(self, obj):
 		return obj.id
 
+# class Method_Admin(admin.ModelAdmin):
+# 	list_display = [
+# 		'INCOMPLETE',
+# 		'SUB',
+# 		'TKO',
+# 		'KO',
+# 		'UNAN_DEC',
+# 		'SPLIT_DEC',
+# 		'DRAW',
+# 		'NC',
+# 		'id'
+# 	]
+# 	def id(self, obj):
+# 		return obj.id
+
 
 admin.site.register(Ring_User,Ring_User_Admin)
 admin.site.register(Fighter)
