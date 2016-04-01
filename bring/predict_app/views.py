@@ -33,6 +33,7 @@ def display_users_ring(request):
 	return render(request, "predict_app/users_ring.html")
 
 def display_home(request):
+
 	return render(request, "predict_app/home.html")
 
 def display_register(request):
@@ -41,7 +42,7 @@ def display_register(request):
 		if form.is_valid():
 			print("updating valid")
 			new_user = form.save()
-			return HttpResponseRedirect("/")
+			return HttpResponseRedirect("/accounts/profile/")
 	else:
 		form = UserCreationForm()
 
@@ -105,6 +106,8 @@ def display_upcoming_cards(request):
 
 	#Make 'upcoming' a list of cards in the next 30 days starting with the most
 	#immeadiate
+	#Django object chaching might be a way to streamline this
+	#use querysets when refactoring, f object might help, also maybe q objects
 	fight_cards = Fight_Card.objects.all()
 	upcoming=[]
 	for card in fight_cards:
@@ -112,7 +115,7 @@ def display_upcoming_cards(request):
 			upcoming.append(card)
 	
 	upcoming.sort(key=lambda r: r.start_time)
-	print(upcoming)
+	#print(upcoming)
 	#Make a dict of keys with card number and values as headliner bouts
 	headliners = {}
 	
@@ -156,12 +159,13 @@ def display_upcoming_cards(request):
 @login_required
 def submit_vote(request):
 	"""Handles vote submissions via AJAX."""
-
+	#here is how you lookup a ring_user given current user
+	print("HERRRRRRRRRRRRRRR", Ring_User.objects.get(user_id=request.user))
 	if request.method == 'POST':
-		print(request.body)
+		
 		#decode request body from bytecode to normal
 		data_json = request.body.decode('utf-8')
-		print("suck-cess-pool", data_json)
+		
 
 		#turn the json string into a python object
 		data = json.loads(data_json)
@@ -184,16 +188,18 @@ def submit_vote(request):
 
 		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
 		usersMethod = get_object_or_404(Method, pk=dict_const_to_pk[data['method']])
-		print("methd", usersMethod)
+		
 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
-		print("OK BOUT",usersBout)
-		aUser = get_object_or_404(Ring_User, pk=1) 
-		print("OK user",aUser)
+		
+
+		#print("THE USERS RINGUSERRRRRRRRRRRRRRRRRRRRRRRRRRRR:", request.user.ring_user_set_all())
+		aUser = get_object_or_404(Ring_User, pk=1)
+		
 
 
 		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, round_final=3, confidence=data['confidence'], excitement=data['excitement'], attachment=data['attachment'], bout_id = usersBout, ring_user_id = aUser)
 		aPrediction.save()
-		print(aPrediction)
+		
 
 		response = usersBout.fight_card_id.id
 

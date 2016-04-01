@@ -16,7 +16,7 @@ class Ring_User(models.Model):
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
 	#SECURITY RISK? FIX THIS
-	avatar = models.CharField(max_length=255, default="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/800x480-Y_Ddraig_Goch.png/330px-800x480-Y_Ddraig_Goch.png")
+	avatar = models.CharField(max_length=255, default="https://d13yacurqjgara.cloudfront.net/users/541599/screenshots/1929307/dribbledragon.jpg")
 	user_id = models.ForeignKey(User, null=True, blank=True)
 
 	def __str__(self):
