@@ -29,6 +29,11 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+def display_users_ring(request):
+	return render(request, "predict_app/users_ring.html")
+
+def display_home(request):
+	return render(request, "predict_app/home.html")
 
 def display_register(request):
 	if request.method == "POST":
@@ -53,6 +58,7 @@ def display_predict_bout(request, bout_id):
 	context = {"bout":bout}
 	return render(request, 'predict_app/predict_a_bout.html', context)
 
+@login_required
 def display_fight_card(request, fight_card_id=0):
 	"""experimenting with django templates. ONLY FOR MVP.
 	MUST MUST MUST IMPLEMENT FILTERS INSTEAD"""
@@ -84,6 +90,8 @@ def display_fight_card(request, fight_card_id=0):
 
 	return render(request, 'predict_app/predict_a_card.html', context)
 
+
+@login_required
 def display_upcoming_cards(request):
 	"""display all cards for the next 30 days. This function badly need filters
 	to improve scalibility. This is a prototype for demonstration purposes 
@@ -145,6 +153,7 @@ def display_upcoming_cards(request):
 
 	return render(request, 'predict_app/display_upcoming_cards.html', context)
 
+@login_required
 def submit_vote(request):
 	"""Handles vote submissions via AJAX."""
 

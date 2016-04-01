@@ -145,6 +145,8 @@ class Bout(models.Model):
 	fighter1_odds = models.IntegerField(blank=True,default=100)
 	fighter2_odds = models.IntegerField(blank=True,default=-100)
 	bout_importance_on_card = models.PositiveIntegerField(default=1)
+	bout_winner_half_draw = models.ForeignKey(Fighter, related_name="fighter_won_half_draw", blank=True, null=True)
+	bout_winner_draw_half = models.ForeignKey(Fighter, related_name="fighter_won_draw_half", blank=True, null=True)
 
 
 	def __str__(self):
