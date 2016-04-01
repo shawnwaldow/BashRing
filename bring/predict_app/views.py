@@ -21,8 +21,30 @@ import operator
 #For making all datetimes aware. Must install in venv!
 import pytz
 
+#imports for django users and registration peewee
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
 
+def display_register(request):
+	if request.method == "POST":
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			print("updating valid")
+			new_user = form.save()
+			return HttpResponseRedirect("/")
+	else:
+		form = UserCreationForm()
+
+	return render(request, "registration/register.html", {
+	'form': form,
+	})
+
+@login_required
 def display_predict_bout(request, bout_id):
 	"""Take a bout number from the url and allow a vote"""
 	print("passed bout number", bout_id)

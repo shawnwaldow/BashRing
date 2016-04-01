@@ -42,10 +42,9 @@ class Fighter(models.Model):
 	batwings = models.PositiveIntegerField(blank=True,)
 	water = models.FloatField(blank=True,default=1)
 	gender = models.BooleanField(default=True) #F=Female, T=Male
-	readonly_fields=('id')
 
 	def __str__(self):
-		return self.first_name+" '"+self.nick_name+"' "+self.last_name
+		return self.first_name+" "+self.last_name
 
 
 
@@ -175,4 +174,4 @@ class BoutWinner(models.Model):
 
 
 	def __str__(self):
-		return "bout"+bout_id+":Winner"+fighter_id
+		return "bout"+str(self.bout_id)+":Winner"+str(self.fighter_id)
