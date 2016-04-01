@@ -168,10 +168,3 @@ class User_Prediction(models.Model):
 
 
 
-class BoutWinner(models.Model):
-	bout_id = models.ForeignKey(Bout)
-	fighter_id = models.ForeignKey(Fighter)
-
-
-	def __str__(self):
-		return "bout"+str(self.bout_id)+":Winner"+str(self.fighter_id)
