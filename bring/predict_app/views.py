@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 
 #Allow getting things from DB
-from .models import Fight_Card, Fighter, Bout, User_Prediction, Method, Ring_User
+from .models import Fight_Card, Fighter, Bout, User_Prediction, Method, Ring_User, User
 
 from django.http import JsonResponse
 import json
@@ -27,10 +27,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
+#Very necesarry for signal waiting in attaching ring_user to django user at creation.
+from django.db.models.signals import post_save
+
 
 # Create your views here.
 def display_users_ring(request):
-	return render(request, "predict_app/users_ring.html")
+		# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
+		# a_new_ring_user.save()
+		return render(request, "predict_app/users_ring.html")
+
 
 def display_home(request):
 
@@ -40,26 +46,51 @@ def display_register(request):
 	if request.method == "POST":
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
+
 			print("updating valid")
+			
 			new_user = form.save()
+
+			##WAIT FOR SIGNAL##
+			#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
+			# print("WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+			# def save_user(sender, instance, created, **kwargs):
+			# 	Ring_User.objects.create(groupname=instance.id)
+
+			# post_save.connect(save_user, sender=User)
+			# print("DONE WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+			# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
+			
+			# a_new_ring_user.save()
+
 			return HttpResponseRedirect("/accounts/profile/")
 	else:
+
 		form = UserCreationForm()
 
 	return render(request, "registration/register.html", {
+
 	'form': form,
+
 	})
 
 @login_required
+
 def display_predict_bout(request, bout_id):
 	"""Take a bout number from the url and allow a vote"""
+
 	print("passed bout number", bout_id)
+
 	bout = get_object_or_404(Bout, pk=bout_id)
+
 	print(bout)
+
 	context = {"bout":bout}
+
 	return render(request, 'predict_app/predict_a_bout.html', context)
 
 @login_required
+
 def display_fight_card(request, fight_card_id=0):
 	"""experimenting with django templates. ONLY FOR MVP.
 	MUST MUST MUST IMPLEMENT FILTERS INSTEAD"""
@@ -193,7 +224,7 @@ def submit_vote(request):
 		
 
 		#print("THE USERS RINGUSERRRRRRRRRRRRRRRRRRRRRRRRRRRR:", request.user.ring_user_set_all())
-		aUser = get_object_or_404(Ring_User, pk=1)
+		aUser = Ring_User.objects.get(user_id=request.user)
 		
 
 
