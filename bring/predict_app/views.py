@@ -49,7 +49,32 @@ def display_users_ring(request):
 	a_ring_user = Ring_User.objects.get(user_id=request.user)
 	predictions = a_ring_user.user_prediction_set.all()
 
-	context={'predictions':predictions, "a_ring_user":a_ring_user}
+	#Arrays to sort predictions by
+	yr_winners = []
+	yr_tba = []
+	yr_losers = []
+
+	#IGNORING DRAWS and METHOD FOR MVP
+	for each in predictions:
+		if(each.winner == each.bout_id.bout_winner_half_draw):
+			yr_winners.append(each)
+		#Incomplete's PK is 1. Fix this crap post MVP	
+		elif (each.bout_id.method_id.id == 1):
+			yr_tba.append(each)
+		else:
+			yr_losers.append(each)
+
+	a_ring_user.experience = len(yr_winners) + len(yr_losers)
+	a_ring_user.accuracy = len(yr_winners) / a_ring_user.experience
+
+	context = {
+		'predictions':predictions, 
+		"a_ring_user":a_ring_user, 
+		'winners': yr_winners, 
+		'losers': yr_losers, 
+		'tba': yr_tba
+		}
+
 	return render(request, "predict_app/users_ring.html", context)
 
 
