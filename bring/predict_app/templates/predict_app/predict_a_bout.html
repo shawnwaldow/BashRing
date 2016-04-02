@@ -27,6 +27,16 @@
 		<h2>{{bout.fighter1.wins}} - {{bout.fighter1.losses}} - {{bout.fighter1.draws}}&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;  
 		{{bout.fighter2.wins}} - {{bout.fighter2.losses}} - {{bout.fighter2.draws}} </h2>
 
+
+
+{% if bout.bout_winner_half_draw %}
+	{% if bout.bout_winner_draw_half %}
+		{{bout.bout_winner_half_draw}} draws with {{ bout.bout_winner_draw_half }}
+	{% else %}
+		<h3>Result:</h3>{{bout.bout_winner_half_draw}} wins by {{bout.method_id}}<br><br>
+	{% endif %}
+{% else %}
+
 		<form id="bout_vote">
 			<!--level 1 security-->{% csrf_token %}
 			<input type="radio" name="fighter_choice" value="{{bout.fighter1.id}}" /> {{bout.fighter1.last_name}}&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fighter_choice" value="{{bout.fighter2.id}}" /> {{bout.fighter2.last_name}}
@@ -61,14 +71,6 @@ Excitment--
 
 
 		</form>
-
-<br>
-<br>
-<h3>Result:</h3>
-
-
-{% if 'Incomplete' == bout.method_id %}<br>
-	Bout Incomplete
 {% endif %}
 
 <!-- Come back after MVP and handle super rare NCs/DQs -->
