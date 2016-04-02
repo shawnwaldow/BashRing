@@ -54,9 +54,9 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 *FIX error with url length for avatars. Done changed default avatar.
 -->$*
 
-*correct registrations successful landing page.
+*calculatewinners
 
-*Addringusers create to registration.
+*calculate predictioncorrectness
 
 *EZ or MEDIUM 4 hrs when done towards end after user creation.
 -make a LANDING. Must calc results of past predictions. that shows your averages, results, and predictions and a links to do the same for every other user. 
@@ -64,15 +64,13 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 *EZ 1 hr
 shows the AGRAGOREKRATOS for all users for each card.
 
-*credit and link UFC and Sherdog
-
 *FIX THE UNAN DEC ERROR
 
 *Convert all tabs to spaces
 
-*Send ransom and patrick a link to the user repo
+*correct registrations successful landing page.
 
-*Whole DB will need nuked and reloaded to reset some ring_users fields. The old url field for avatars is stuck at 100characters.
+*Addringusers create to registration.
 
 
 
@@ -92,6 +90,11 @@ shows the AGRAGOREKRATOS for all users for each card.
 
 Then immeadiate stretch goals:
 
+*credit and link UFC and Sherdog
+
+*Send ransom and patrick a link to the user repo
+
+*Whole DB will need nuked and reloaded to reset some ring_users fields. The old url field for avatars is stuck at 100characters.
 
 *README 1hr
 

@@ -36,10 +36,10 @@ def display_users_ring(request):
 	# Do a query to find the Ring_User corresponding to the logged-in Django
 	# user. If they are new the Ring_User.first_name will = "noname". Update
 	# it to correspond to the django user username. This is for MVP only.
-	print(Ring_User.objects.get(user_id=request.user))
-	aUser = Ring_User.objects.get(user_id=request.user)	
-	if aUser.first_name == "noname":
-		aUser.first_name=request.user.get_username()
+	# print(Ring_User.objects.get(user_id=request.user))
+	# aUser = Ring_User.objects.get(user_id=request.user)	
+	# if aUser.first_name == "noname":
+	# 	aUser.first_name=request.user.get_username()
 
 	return render(request, "predict_app/users_ring.html")
 

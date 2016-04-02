@@ -179,10 +179,10 @@ class User_Prediction(models.Model):
 		return str(self.bout_id) + " Prediction by " + str(self.ring_user_id)
 
 
-def save_user(sender, instance, created, **kwargs):
-	"""Connect a Ring_User to a new django User."""
-	#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
-	Ring_User.objects.create(user_id=instance)
+# def save_user(sender, instance, created, **kwargs):
+# 	"""Connect a Ring_User to a new django User."""
+# 	#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
+# 	Ring_User.objects.create(user_id=instance)
 
-# More """Connect a Ring_User to a new django User."""
-post_save.connect(save_user, sender=User)
+# # More """Connect a Ring_User to a new django User."""
+# post_save.connect(save_user, sender=User)
