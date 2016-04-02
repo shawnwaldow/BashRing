@@ -160,8 +160,13 @@ class Bout(models.Model):
 		return str(self.fight_card_id) +"'s bout: "+ str(self.fighter1) + " vs. "+ str(self.fighter2)
 
 	def declare_winner(self, method_id, fighter):
-		pass
-		#		if method_id != 'Draw' or 'No Contest':
+		self.method_id = method_id
+		if method_id != 'Draw':
+			self.bout_winner_half_draw = fighter
+		else:
+			self.bout_winner_half_draw = self.fighter1
+			self.bout_winner_draw_half = self.fighter2
+
 
 
 class User_Prediction(models.Model):

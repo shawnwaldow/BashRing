@@ -62,7 +62,16 @@ Excitment--
 
 		</form>
 
+<br>
+<br>
+<h3>Result:</h3>
 
+
+{% if 'Incomplete' == bout.method_id %}<br>
+	Bout Incomplete
+{% endif %}
+
+<!-- Come back after MVP and handle super rare NCs/DQs -->
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -76,11 +85,6 @@ Excitment--
 
     window.onload = function() { printValue('confidence', 'rangeValue1'); printValue('attachment', 'rangeValue2'); printValue('excitement', 'rangeValue3'); }
 </script>
-<br>
-<br>
-<h3>Result:</h3>
-{{bout.method_id}}
-<br>
-<br>
+
 
 {% endblock %}
