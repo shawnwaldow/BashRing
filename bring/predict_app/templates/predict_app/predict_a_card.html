@@ -27,10 +27,6 @@
 			  {% for prediction in bout.user_prediction_set.all %}
 				{{prediction.ring_user_id.last_name}} picked {{prediction.winner.last_name}} by {{prediction.method}}.<br>
 
-				{% if bout.bout_winner_half_draw %}
-					{{bout.bout_winner_half_draw}} gets the {{bout.method_id}}
-				{% endif %}
-
 			  {% endfor %}
 		</div>
 	</section>
