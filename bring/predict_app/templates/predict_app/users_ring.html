@@ -7,7 +7,7 @@
 <!--Base Template opens head-->
 
 
-<title>Bash Ring MMA: Users Ring</title>
+<title>Bash Ring MMA: {{a_ring_user.first_name}}</title>
 
 </head>
 
@@ -16,12 +16,21 @@
 
 <section>
 
-	<h1>Bash Ring MMA: Users Ring</h1>
+	<h1>Bash Ring MMA: {{a_ring_user.first_name}}</h1>
 
-		
-		<a href="{% url 'display_upcoming_cards' %}">Upcoming Cards</a>
+		<a img src="{{a_ring_user.avatar}}"/>
+
+		<h2><a href="{% url 'display_upcoming_cards' %}">See Upcoming Cards</a></h2>
+
+		<h2>Your Predictions</h2>
+		{{predictions}}<br>
 	
-
+		<h3>Your Experience</h3>
+		{{a_ring_user.experience}}
+		<br>
+		<h4>Your Accuracy</h4>
+		{{a_ring_user.accuracy}}
+		<br><br>
 
 </section>
 {% endblock %}

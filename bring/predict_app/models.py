@@ -181,7 +181,7 @@ class User_Prediction(models.Model):
 	#can we make a string here to show user name and each fighter name?!
 
 	def __str__(self):
-		return str(self.bout_id) + " Prediction by " + str(self.ring_user_id)
+		return str(self.bout_id) +":: "+ str(self.winner) +" by "+ str(self.method)
 
 
 # def save_user(sender, instance, created, **kwargs):

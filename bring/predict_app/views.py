@@ -36,12 +36,21 @@ def display_users_ring(request):
 	# Do a query to find the Ring_User corresponding to the logged-in Django
 	# user. If they are new the Ring_User.first_name will = "noname". Update
 	# it to correspond to the django user username. This is for MVP only.
+
+	####CODE TO PUT BACK WHEN USER/RING_USER AUTO LINK FIXED
 	# print(Ring_User.objects.get(user_id=request.user))
 	# aUser = Ring_User.objects.get(user_id=request.user)	
 	# if aUser.first_name == "noname":
 	# 	aUser.first_name=request.user.get_username()
 
-	return render(request, "predict_app/users_ring.html")
+
+	# Do a query to find the Ring_User corresponding to the logged-in Django
+	# user. This statment is used often and deserves functionalization post MVP.
+	a_ring_user = Ring_User.objects.get(user_id=request.user)
+	predictions = a_ring_user.user_prediction_set.all()
+
+	context={'predictions':predictions, "a_ring_user":a_ring_user}
+	return render(request, "predict_app/users_ring.html", context)
 
 
 def display_home(request):
@@ -245,155 +254,156 @@ def submit_vote(request):
 
 @login_required
 def declare_winners_by_fight_card(request, bout_id=0):
-	"""Display all the bouts on a given fight card. Assign each as a winner or not
-	ONLY FOR MVP. SMOKING CRACK IF I KNEW WHAT THAT WAS LIKE."""
-	print("passed bout id", bout_id)
+	pass
+# 	"""Display all the bouts on a given fight card. Assign each as a winner or not
+# 	ONLY FOR MVP. THIS CODE IS CRAP TO THROW AWAY
+# 	print("passed bout id", bout_id)
 
-	#Things we grab from the url always come in as strings.
-	bout_id = int(bout_id)
-	bout = get_object_or_404(Bout, pk=bout_id)
-	theMethod = get_object_or_404(Method, pk=2)
-	theWinner = bout.fighter1
-	bout.declare_winner(theMethod, theWinner)
-	#####THIS IS LIKE SMOKING CRACK IF I KNEW WHAT THAT WAS LIKE.
-	utc=pytz.UTC
-	#Make local to user
-	now = datetime.now()
-	servertime = now
+# 	#Things we grab from the url always come in as strings.
+# 	bout_id = int(bout_id)
+# 	bout = get_object_or_404(Bout, pk=bout_id)
+# 	theMethod = get_object_or_404(Method, pk=2)
+# 	theWinner = bout.fighter1
+# 	bout.declare_winner(theMethod, theWinner)
+# 	#####THIS IS LIKE SMOKING CRACK IF I KNEW WHAT THAT WAS LIKE.
+# 	utc=pytz.UTC
+# 	#Make local to user
+# 	now = datetime.now()
+# 	servertime = now
 	
-	servertime = utc.localize(servertime)
+# 	servertime = utc.localize(servertime)
 
-	#Make 'upcoming' a list of cards in the next 30 days starting with the most
-	#immeadiate
-	#Django object chaching might be a way to streamline this
-	#use querysets when refactoring, f object might help, also maybe q objects
-	fight_cards = Fight_Card.objects.all()
-	upcoming=[]
-	for card in fight_cards:
-		#IMPROVE THIS IF STATEMENT TO EVALUATE WITHOUT THE AND AFTER MVP.
-		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
-			upcoming.append(card)
+# 	#Make 'upcoming' a list of cards in the next 30 days starting with the most
+# 	#immeadiate
+# 	#Django object chaching might be a way to streamline this
+# 	#use querysets when refactoring, f object might help, also maybe q objects
+# 	fight_cards = Fight_Card.objects.all()
+# 	upcoming=[]
+# 	for card in fight_cards:
+# 		#IMPROVE THIS IF STATEMENT TO EVALUATE WITHOUT THE AND AFTER MVP.
+# 		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
+# 			upcoming.append(card)
 	
-	upcoming.sort(key=lambda r: r.start_time)
-	#print(upcoming)
-	#Make a dict of keys with card number and values as headliner bouts
-	headliners = {}
+# 	upcoming.sort(key=lambda r: r.start_time)
+# 	#print(upcoming)
+# 	#Make a dict of keys with card number and values as headliner bouts
+# 	headliners = {}
 	
-	for event in upcoming:
-		headliners[event.id] = 0
+# 	for event in upcoming:
+# 		headliners[event.id] = 0
 
-	print(headliners)
+# 	print(headliners)
 
-	all_bouts = Bout.objects.all()
-
-
-	# making a dict headliners={fight_card_id: headline_bout_obj}
-	for each in headliners.keys():
-		print(each)
-		for tussle in all_bouts:
-			# look at the fight card id of every bout in the db for ones that are
-			# in our headliners dictonary. For these then check to see if their
-			# importance_on_card == 0. The zeroth bouts are the headliners.
-			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
-				headliners[each] = tussle
+# 	all_bouts = Bout.objects.all()
 
 
-	#Making a list of tuples(fight_card_obj, bout_obj)
-	next_30_days=[]
-	for event in upcoming:
-		tup = (event, headliners[event.id])
-		next_30_days.append(tup)
+# 	# making a dict headliners={fight_card_id: headline_bout_obj}
+# 	for each in headliners.keys():
+# 		print(each)
+# 		for tussle in all_bouts:
+# 			# look at the fight card id of every bout in the db for ones that are
+# 			# in our headliners dictonary. For these then check to see if their
+# 			# importance_on_card == 0. The zeroth bouts are the headliners.
+# 			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
+# 				headliners[each] = tussle
 
 
-	print("event id: headline bout id", headliners)
+# 	#Making a list of tuples(fight_card_obj, bout_obj)
+# 	next_30_days=[]
+# 	for event in upcoming:
+# 		tup = (event, headliners[event.id])
+# 		next_30_days.append(tup)
 
-	context = {
-		'now': now, 'next_30_days': next_30_days, 'upcoming': upcoming
-	}
 
-	return render(request, 'predict_app/display_upcoming_cards.html', context)
+# 	print("event id: headline bout id", headliners)
+
+# 	context = {
+# 		'now': now, 'next_30_days': next_30_days, 'upcoming': upcoming
+# 	}
+
+# 	return render(request, 'predict_app/display_upcoming_cards.html', context)
 
 	
 
-	# #Sledgehammer! Call up all the cards ever in the bout. Fix after MVP.
-	# all_bouts = Bout.objects.all()
-	# this_cards_bouts = []
+# 	# #Sledgehammer! Call up all the cards ever in the bout. Fix after MVP.
+# 	# all_bouts = Bout.objects.all()
+# 	# this_cards_bouts = []
 
-	# for tussle in all_bouts:
+# 	# for tussle in all_bouts:
 
-	# 	#
-	# 	if tussle.fight_card_id.id == fight_card_id:
-	# 		this_cards_bouts.append(tussle)
+# 	# 	#
+# 	# 	if tussle.fight_card_id.id == fight_card_id:
+# 	# 		this_cards_bouts.append(tussle)
 
-	# this_cards_bouts.sort(key=operator.attrgetter('bout_importance_on_card'))
-	# print(this_cards_bouts)
+# 	# this_cards_bouts.sort(key=operator.attrgetter('bout_importance_on_card'))
+# 	# print(this_cards_bouts)
 
-	# for bout in this_cards_bouts:
-	# 	#reverse lookup usuing queryset object
-	# 	print(bout.user_prediction_set.all())
+# 	# for bout in this_cards_bouts:
+# 	# 	#reverse lookup usuing queryset object
+# 	# 	print(bout.user_prediction_set.all())
 
 
-	# context = {
-	# 	'fight_card': fight_card, 
-	# 	'this_cards_bouts': this_cards_bouts
-	# }
+# 	# context = {
+# 	# 	'fight_card': fight_card, 
+# 	# 	'this_cards_bouts': this_cards_bouts
+# 	# }
 
-	# return render(request, 'predict_app/predict_a_card.html', context)
+# 	# return render(request, 'predict_app/predict_a_card.html', context)
 
-# @login_required
-# def submit_winners(request):
-# 	"""Helper to declare_winners above. Assign who wins. Submits via AJAX."""
-# 	#here is how you lookup a ring_user given current user
-# 	print("HERRRRRRRRRRRRRRR", Ring_User.objects.get(user_id=request.user))
-# 	if request.method == 'POST':
+# # @login_required
+# # def submit_winners(request):
+# # 	"""Helper to declare_winners above. Assign who wins. Submits via AJAX."""
+# # 	#here is how you lookup a ring_user given current user
+# # 	print("HERRRRRRRRRRRRRRR", Ring_User.objects.get(user_id=request.user))
+# # 	if request.method == 'POST':
 		
-# 		#decode request body from bytecode to normal
-# 		data_json = request.body.decode('utf-8')
-		
-
-# 		#turn the json string into a python object
-# 		data = json.loads(data_json)
-
-# 		#Work with the info in the json object to make sure it is in the right 
-# 		#form to instantiate a new User_Prediction. Is this the best place to do
-# 		#this? Work back to adding round final and also sub to the template, 
-# 		#js, and here.
-		
-# 		###Ack go back and redesign the model to do away with this.
-# 		dict_const_to_pk={
-# 			'SUB':3,
-# 			'TKO':5, 
-# 			'KO':2,
-# 			'UNAN_DEC':7,
-# 			'SPLIT_DEC':8,
-# 			'DRAW':4,
-# 			'NC':6,
-# 			'INCOMPLETE':1
-# 			}
-
-# 		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
-# 		usersMethod = get_object_or_404(Method, pk=dict_const_to_pk[data['method']])
-		
-# 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
+# # 		#decode request body from bytecode to normal
+# # 		data_json = request.body.decode('utf-8')
 		
 
-# 		# Do a query to find the Ring_User corresponding to the logged-in Django
-# 		# user.
-# 		aUser = Ring_User.objects.get(user_id=request.user)
+# # 		#turn the json string into a python object
+# # 		data = json.loads(data_json)
+
+# # 		#Work with the info in the json object to make sure it is in the right 
+# # 		#form to instantiate a new User_Prediction. Is this the best place to do
+# # 		#this? Work back to adding round final and also sub to the template, 
+# # 		#js, and here.
+		
+# # 		###Ack go back and redesign the model to do away with this.
+# # 		dict_const_to_pk={
+# # 			'SUB':3,
+# # 			'TKO':5, 
+# # 			'KO':2,
+# # 			'UNAN_DEC':7,
+# # 			'SPLIT_DEC':8,
+# # 			'DRAW':4,
+# # 			'NC':6,
+# # 			'INCOMPLETE':1
+# # 			}
+
+# # 		usersWinner = get_object_or_404(Fighter, pk=data['fighter_id'])
+# # 		usersMethod = get_object_or_404(Method, pk=dict_const_to_pk[data['method']])
+		
+# # 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
+		
+
+# # 		# Do a query to find the Ring_User corresponding to the logged-in Django
+# # 		# user.
+# # 		aUser = Ring_User.objects.get(user_id=request.user)
 		
 
 
-# 		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, 
-# 			round_final=3, confidence=data['confidence'], 
-# 			excitement=data['excitement'], attachment=data['attachment'], 
-# 			bout_id = usersBout, ring_user_id = aUser)
+# # 		aPrediction = User_Prediction(winner=usersWinner, method=usersMethod, 
+# # 			round_final=3, confidence=data['confidence'], 
+# # 			excitement=data['excitement'], attachment=data['attachment'], 
+# # 			bout_id = usersBout, ring_user_id = aUser)
 		
-# 		aPrediction.save()
-		
-
-# 		response = usersBout.fight_card_id.id
-
-		
+# # 		aPrediction.save()
 		
 
-# 	return JsonResponse({'data': response})
+# # 		response = usersBout.fight_card_id.id
+
+		
+		
+
+# # 	return JsonResponse({'data': response})

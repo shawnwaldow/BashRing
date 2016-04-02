@@ -1,6 +1,6 @@
 todos
 
-the models are done for the database we designed. two api calls partially populate the DB. These two steps took about two weeks of class time, but class had little usable programming time because of turmoil between the instructor and administrators.
+the models are done for the database we designed. two api calls partially populate the DB. These two steps took about two weeks of class time, but class had little usable programming time for various sorted reasons.
 
 *EZ, 2hrs(really 4)
 -improve db to include more fields like headliner
@@ -66,13 +66,6 @@ shows the AGRAGOREKRATOS for all users for each card.
 
 *FIX THE UNAN DEC ERROR
 
-*Convert all tabs to spaces
-
-*correct registrations successful landing page.
-
-*Addringusers create to registration.
-
-
 
 
 
@@ -89,6 +82,11 @@ shows the AGRAGOREKRATOS for all users for each card.
 
 
 Then immeadiate stretch goals:
+
+*correct registrations successful landing page.
+
+
+*Convert all tabs to spaces
 
 *credit and link UFC and Sherdog
 
