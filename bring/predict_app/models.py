@@ -180,18 +180,9 @@ class User_Prediction(models.Model):
 
 
 def save_user(sender, instance, created, **kwargs):
+	"""Connect a Ring_User to a new django User."""
+	#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
 	Ring_User.objects.create(user_id=instance)
 
+# More """Connect a Ring_User to a new django User."""
 post_save.connect(save_user, sender=User)
-
-			##WAIT FOR SIGNAL##
-			#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
-			# print("WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
-			# def save_user(sender, instance, created, **kwargs):
-			# 	Ring_User.objects.create(groupname=instance.id)
-
-			# post_save.connect(save_user, sender=User)
-			# print("DONE WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
-			# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
-			
-			# a_new_ring_user.save()

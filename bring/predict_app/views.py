@@ -31,13 +31,16 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 
-
-
-# Create your views here.
 def display_users_ring(request):
 	"""This is the first page a ring_user sees after login."""
-		#REMOVE a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
-		#REMOVE a_new_ring_user.save()
+	# Do a query to find the Ring_User corresponding to the logged-in Django
+	# user. If they are new the Ring_User.first_name will = "noname". Update
+	# it to correspond to the django user username. This is for MVP only.
+	print(Ring_User.objects.get(user_id=request.user))
+	aUser = Ring_User.objects.get(user_id=request.user)	
+	if aUser.first_name == "noname":
+		aUser.first_name=request.user.get_username()
+
 	return render(request, "predict_app/users_ring.html")
 
 
@@ -58,7 +61,7 @@ def display_register(request):
 			
 			new_user = form.save()
 
-
+			#Point them to display_users_ring() via predict_app/urls.py
 			return HttpResponseRedirect("/accounts/profile/")
 	else:
 
@@ -88,7 +91,7 @@ def display_predict_bout(request, bout_id):
 @login_required
 def display_fight_card(request, fight_card_id=0):
 	"""Display all the bouts on a given fight card. ONLY FOR MVP.
-	MUST MUST MUST IMPLEMENT FILTERS INSTEAD"""
+	MUST MUST MUST IMPLEMENT QUERYSETS INSTEAD"""
 	print("passed fight card id", fight_card_id)
 
 	#Things we grab from the url always come in as strings.
@@ -221,7 +224,8 @@ def submit_vote(request):
 		usersBout = get_object_or_404(Bout, pk=data['bout_id'])
 		
 
-		#print("THE USERS RINGUSERRRRRRRRRRRRRRRRRRRRRRRRRRRR:", request.user.ring_user_set_all())
+		# Do a query to find the Ring_User corresponding to the logged-in Django
+		# user.
 		aUser = Ring_User.objects.get(user_id=request.user)
 		
 
