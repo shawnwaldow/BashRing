@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from datetime import datetime
 # Create your models here.
 
+# Necesarry for signal waiting attaching ring_user to django user at creation.
+from django.db.models.signals import post_save
+
 class Ring_User(models.Model):
 
 	first_name = models.CharField(max_length=64, default='noname')
@@ -176,4 +179,19 @@ class User_Prediction(models.Model):
 		return str(self.bout_id) + " Prediction by " + str(self.ring_user_id)
 
 
+def save_user(sender, instance, created, **kwargs):
+	Ring_User.objects.create(user_id=instance)
 
+post_save.connect(save_user, sender=User)
+
+			##WAIT FOR SIGNAL##
+			#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
+			# print("WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+			# def save_user(sender, instance, created, **kwargs):
+			# 	Ring_User.objects.create(groupname=instance.id)
+
+			# post_save.connect(save_user, sender=User)
+			# print("DONE WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+			# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
+			
+			# a_new_ring_user.save()

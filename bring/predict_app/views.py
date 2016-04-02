@@ -1,48 +1,55 @@
 
-"""Do the View."""
-#we added the last one for url var passing a '?'
+"""BashRing Fantasy MMA. The meat of the Django implementation of beta version 
+1 MVP!!!"""
+
+
+
+# We added this last one for url var passing a '?'
 from django.shortcuts import render, get_object_or_404
 
-#We added this to handle the HttpResponse in this particular manner.
+# We added this to handle the HttpResponse in this particular manner.
 from django.http.response import HttpResponse
 
-#Allow getting things from DB
+# Allow getting things from DB
 from .models import Fight_Card, Fighter, Bout, User_Prediction, Method, Ring_User, User
 
 from django.http import JsonResponse
 import json
 from django.shortcuts import render
 
-from datetime import datetime, timedelta
-
-# for sorted
+# For function sorted
 import operator
 
-#For making all datetimes aware. Must install in venv!
+# For making all datetimes aware. Must install in venv!
 import pytz
+from datetime import datetime, timedelta
 
-#imports for django users and registration peewee
+# For django users and registration peewee
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-#Very necesarry for signal waiting in attaching ring_user to django user at creation.
-from django.db.models.signals import post_save
+
 
 
 # Create your views here.
 def display_users_ring(request):
-		# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
-		# a_new_ring_user.save()
-		return render(request, "predict_app/users_ring.html")
+	"""This is the first page a ring_user sees after login."""
+		#REMOVE a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
+		#REMOVE a_new_ring_user.save()
+	return render(request, "predict_app/users_ring.html")
 
 
 def display_home(request):
+	"""This is the splash page users see at root directing them to login or 
+	register"""
 
 	return render(request, "predict_app/home.html")
 
 def display_register(request):
+	"""Display baked in Django registration form PEWEE"""
+
 	if request.method == "POST":
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
@@ -51,17 +58,6 @@ def display_register(request):
 			
 			new_user = form.save()
 
-			##WAIT FOR SIGNAL##
-			#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
-			# print("WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
-			# def save_user(sender, instance, created, **kwargs):
-			# 	Ring_User.objects.create(groupname=instance.id)
-
-			# post_save.connect(save_user, sender=User)
-			# print("DONE WAITINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
-			# a_new_ring_user=Ring_User(first_name=request.user.get_username(), user_id=request.user.id)
-			
-			# a_new_ring_user.save()
 
 			return HttpResponseRedirect("/accounts/profile/")
 	else:
@@ -74,10 +70,10 @@ def display_register(request):
 
 	})
 
-@login_required
 
+@login_required
 def display_predict_bout(request, bout_id):
-	"""Take a bout number from the url and allow a vote"""
+	"""Take a bout number from the url and allow ring_user to vote"""
 
 	print("passed bout number", bout_id)
 
@@ -90,20 +86,22 @@ def display_predict_bout(request, bout_id):
 	return render(request, 'predict_app/predict_a_bout.html', context)
 
 @login_required
-
 def display_fight_card(request, fight_card_id=0):
-	"""experimenting with django templates. ONLY FOR MVP.
+	"""Display all the bouts on a given fight card. ONLY FOR MVP.
 	MUST MUST MUST IMPLEMENT FILTERS INSTEAD"""
 	print("passed fight card id", fight_card_id)
 
+	#Things we grab from the url always come in as strings.
 	fight_card_id = int(fight_card_id)
 	fight_card = get_object_or_404(Fight_Card, pk=fight_card_id)
 	
+	#Sledgehammer! Call up all the cards ever in the bout. Fix after MVP.
 	all_bouts = Bout.objects.all()
 	this_cards_bouts = []
 
 	for tussle in all_bouts:
 
+		#
 		if tussle.fight_card_id.id == fight_card_id:
 			this_cards_bouts.append(tussle)
 
