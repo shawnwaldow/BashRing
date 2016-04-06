@@ -23,12 +23,20 @@
 		<h2><a href="{% url 'display_upcoming_cards' %}">See Upcoming Cards</a></h2>
 
 		<h3>Pending Predictions</h3>
-		{{tba}}
+		{% for each in tba%}
+			{{each.bout_id}}<br>
+		{% endfor %}
+
+		<h2><a href="{% url 'recent_past_cards' %}">See Past Cards</a></h2>
 
 		<h3>Your Winners</h3>
-		{{winners}}<br>
+		{% for each in winners%}
+			{{each.bout_id}}<br>
+		{% endfor %}
 		<h3>Your Losers</h3>
-		{{losers}}
+			{% for each in losers%}
+			{{each.bout_id}}<br>
+		{% endfor %}
 	
 		<h3>Your Experience</h3>
 		{{a_ring_user.experience}}

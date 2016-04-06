@@ -31,6 +31,69 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 
+@login_required
+def display_recent_past_cards(request):
+	"""display past cards for the last 32 days. This function badly need filters
+	to improve scalibility. This is a prototype for demonstration purposes 
+	only."""
+	utc=pytz.UTC
+	#Make local to user
+	now = datetime.now()
+	servertime = now
+	
+	servertime = utc.localize(servertime)
+
+	#Make 'upcoming' a list of cards in the next 30 days starting with the most
+	#immeadiate
+	#Django object chaching might be a way to streamline this
+	#use querysets when refactoring, f object might help, also maybe q objects
+	fight_cards = Fight_Card.objects.all()
+	past=[]
+	for card in fight_cards:
+		#IMPROVE THIS IF STATEMENT TO EVALUATE WITHOUT THE AND AFTER MVP.
+		if (card.start_time < servertime) and (card.start_time > servertime - timedelta(days=5)):
+			past.append(card)
+	
+	past.sort(key=lambda r: r.start_time)
+	#print(upcoming)
+	#Make a dict of keys with card number and values as headliner bouts
+	headliners = {}
+	
+	for event in past:
+		headliners[event.id] = 0
+
+	print(headliners)
+
+	all_bouts = Bout.objects.all()
+
+
+	# making a dict headliners={fight_card_id: headline_bout_obj}
+	for each in headliners.keys():
+		print(each)
+		for tussle in all_bouts:
+			# look at the fight card id of every bout in the db for ones that are
+			# in our headliners dictonary. For these then check to see if their
+			# importance_on_card == 0. The zeroth bouts are the headliners.
+			if (tussle.fight_card_id.id == each) and (tussle.bout_importance_on_card == 0):
+				headliners[each] = tussle
+
+
+	#Making a list of tuples(fight_card_obj, bout_obj)
+	last_30_days=[]
+	for event in past:
+		tup = (event, headliners[event.id])
+		last_30_days.append(tup)
+
+
+	print("event id: headline bout id", headliners)
+
+	context = {
+		'now': now, 'last_30_days': last_30_days, 'past': past
+	}
+
+	return render(request, 'predict_app/display_recent_past_cards.html', context)
+
+
 def display_users_ring(request):
 	"""This is the first page a ring_user sees after login."""
 	# Do a query to find the Ring_User corresponding to the logged-in Django
@@ -64,8 +127,12 @@ def display_users_ring(request):
 		else:
 			yr_losers.append(each)
 
+
 	a_ring_user.experience = len(yr_winners) + len(yr_losers)
-	a_ring_user.accuracy = len(yr_winners) / a_ring_user.experience
+	if a_ring_user.experience == 0:
+		a_ring_user.accuracy = 1
+	else:
+		a_ring_user.accuracy = len(yr_winners) / a_ring_user.experience
 
 	context = {
 		'predictions':predictions, 

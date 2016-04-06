@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'submit_vote$', submit_vote),
     url(r'accounts/profile/', display_users_ring),
     url(r'fix/(?P<bout_id>[0-9]+)', declare_winners_by_fight_card),
+    url(r'recent_past_cards/', display_recent_past_cards, name="recent_past_cards"),
     url(r'^', display_home)
 ]
