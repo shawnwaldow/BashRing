@@ -1,12 +1,14 @@
-body {	font-family: 'Audiowide', cursive;
+body {
 		background-color:gray;
 		background-size: auto 100%;
 		color:white;
+		text-align:center;
 	}
 
 h1 {
 		color: white;
 		font-style: italic;
+		font-size: 3em;
 }
 
 .huge {
@@ -22,8 +24,7 @@ li {
 }
 
 nav {
-	font-size: .7em;
-	font-family: 'Audiowide', cursive;
+	font-size: 1em;
 }
 
 section {
@@ -34,4 +35,9 @@ section {
 
 a {
 	text-decoration: none;
+}
+
+table {
+	font-size:.8em;
+	text-align: center;
 }

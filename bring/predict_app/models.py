@@ -3,9 +3,14 @@ from django.db import models
 
 #import stuff for AUTH_USER_MODEL
 from django.conf import settings
+#Only necesarry when extending User as i do here with Ring_User
+from django.contrib.auth.models import User
 
 from datetime import datetime
 # Create your models here.
+
+# Necesarry for signal waiting attaching ring_user to django user at creation.
+from django.db.models.signals import post_save
 
 class Ring_User(models.Model):
 
@@ -13,10 +18,12 @@ class Ring_User(models.Model):
 	last_name = models.CharField(max_length=64, default='noname')
 	accuracy = models.FloatField(default=1)
 	experience = models.PositiveIntegerField(default=0)
-	avatar = models.ImageField(default="static/menu_images/user1.png",upload_to="avatar_images")
-	readonly_fields=('id')
+	#SECURITY RISK? FIX THIS
+	avatar = models.CharField(max_length=255, default="https://d13yacurqjgara.cloudfront.net/users/541599/screenshots/1929307/dribbledragon.jpg")
+	user_id = models.ForeignKey(User, null=True, blank=True)
+
 	def __str__(self):
-		return self.first_name+" "+self.last_name
+		return self.last_name +" " + self.first_name
 
 
 class Fighter(models.Model):
@@ -42,10 +49,9 @@ class Fighter(models.Model):
 	batwings = models.PositiveIntegerField(blank=True,)
 	water = models.FloatField(blank=True,default=1)
 	gender = models.BooleanField(default=True) #F=Female, T=Male
-	readonly_fields=('id')
 
 	def __str__(self):
-		return self.first_name+" '"+self.nick_name+"' "+self.last_name
+		return self.first_name+" "+self.last_name
 
 
 
@@ -128,7 +134,7 @@ class Fight_Card(models.Model):
 	#GMT
 	start_time = models.DateTimeField()
 	end_time = 	models.DateTimeField(blank=True, default=datetime.now())
-	readonly_fields=('id')
+	
 
 
 	def __str__(self):
@@ -146,14 +152,24 @@ class Bout(models.Model):
 	fighter1_odds = models.IntegerField(blank=True,default=100)
 	fighter2_odds = models.IntegerField(blank=True,default=-100)
 	bout_importance_on_card = models.PositiveIntegerField(default=1)
+	bout_winner_half_draw = models.ForeignKey(Fighter, related_name="fighter_won_half_draw", blank=True, null=True)
+	bout_winner_draw_half = models.ForeignKey(Fighter, related_name="fighter_won_draw_half", blank=True, null=True)
+
 
 	def __str__(self):
 		return str(self.fight_card_id) +"'s bout: "+ str(self.fighter1) + " vs. "+ str(self.fighter2)
 
+	def declare_winner(self, method_id, fighter):
+		self.method_id = method_id
+		if method_id != 'Draw':
+			self.bout_winner_half_draw = fighter
+		else:
+			self.bout_winner_half_draw = self.fighter1
+			self.bout_winner_draw_half = self.fighter2
+
 
 
 class User_Prediction(models.Model):
-	#bout_id = models.ForeignKey(Bout)
 	winner = models.ForeignKey(Fighter)
 	method = models.ForeignKey(Method)
 	round_final = models.PositiveIntegerField()
@@ -165,14 +181,13 @@ class User_Prediction(models.Model):
 	#can we make a string here to show user name and each fighter name?!
 
 	def __str__(self):
-		return str(self.bout_id) + " Prediction by " + str(self.ring_user_id)
+		return str(self.bout_id) +":: "+ str(self.winner) +" by "+ str(self.method)
 
 
+# def save_user(sender, instance, created, **kwargs):
+# 	"""Connect a Ring_User to a new django User."""
+# 	#See https://github.com/ccjoness/Example-of-Django-Model-post_save-signal
+# 	Ring_User.objects.create(user_id=instance)
 
-class BoutWinner(models.Model):
-	bout_id = models.ForeignKey(Bout)
-	fighter_id = models.ForeignKey(Fighter)
-
-
-	def __str__(self):
-		return "bout"+bout_id+":Winner"+fighter_id
+# # More """Connect a Ring_User to a new django User."""
+# post_save.connect(save_user, sender=User)

@@ -1,0 +1,32 @@
+{% extends 'predict_app/base_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+
+<!--Base Template opens head-->
+
+
+<title>Bash Ring MMA: {{ fight_card.title }}</title>
+
+</head>
+
+
+<body>
+
+	<h1>{{ fight_card.title }}</h1>
+
+	<h3>{{ bout.fighter1.nick_name }} vs {{ bout.fighter2.nick_name }}</h3>
+
+	<span>Fighter_1_odds<img src = "fighter"> vs <img src="fighter2.png">fighter_2_odds</span>
+	<p>{{array.0}},{{array.2}}</p>
+	<div>{{ main_bout.fighter1 }}</div>
+
+	<!--<form id="signup" method="post">
+                    <input type="text" id="title" placeholder="Post title" required/><br/><br/>
+                    <textarea name="textarea" rows="5" cols="50" placeholder="Post your stuff." required></textarea><br/>
+                    <input type="submit" name="submit" id="submit" value="Post to Forum" />
+                </form>-->
+
+
+{% endblock %}

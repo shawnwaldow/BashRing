@@ -53,7 +53,7 @@ ROOT_URLCONF = 'bring.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'], #added this for login, registration peewee
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

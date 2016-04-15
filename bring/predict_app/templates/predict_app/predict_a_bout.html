@@ -1,0 +1,92 @@
+{% extends 'predict_app/base_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+
+<!--Base Template opens head-->
+
+
+
+
+<title>Bash Ring MMA: Make Your Pick!</title>
+
+</head>
+
+<body>
+
+<section>
+
+	<h1>Bash Ring MMA: Make Your Pick!</h1>
+	<h3>Event: UFC {{ bout.fight_card_id.title }}</h3>
+	<section class='bout'>
+		<h2>{{ bout.fighter1 }} vs. {{bout.fighter2}}</h2>
+		<div><img src='{{bout.fighter1.image_url}}'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='{{bout.fighter2.image_url}}'></div>
+		<a href="/predict_a_card/{{bout.fight_card_id}}"></a><br>
+		W - L - D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W - L - D
+		<h2>{{bout.fighter1.wins}} - {{bout.fighter1.losses}} - {{bout.fighter1.draws}}&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;  
+		{{bout.fighter2.wins}} - {{bout.fighter2.losses}} - {{bout.fighter2.draws}} </h2>
+
+
+
+{% if bout.bout_winner_half_draw %}
+	{% if bout.bout_winner_draw_half %}
+		{{bout.bout_winner_half_draw}} draws with {{ bout.bout_winner_draw_half }}
+	{% else %}
+		<h3>Result:</h3>{{bout.bout_winner_half_draw}} wins by {{bout.method_id}}<br><br>
+	{% endif %}
+{% else %}
+
+		<form id="bout_vote">
+			<!--level 1 security-->{% csrf_token %}
+			<input type="radio" name="fighter_choice" value="{{bout.fighter1.id}}" /> {{bout.fighter1.last_name}}&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fighter_choice" value="{{bout.fighter2.id}}" /> {{bout.fighter2.last_name}}
+			</br></br>
+			Wins by method:
+			<select id="method">
+                <option value="KO">KO</option>
+                <option value="TKO">TKO</option>
+                <option value="SUB">Submission</option>
+                <option value="UNAN-DEC">Unanimous Decision</option>
+                <option value="SPLIT-DEC">Split Decision</option>
+                <option value="DRAW">Draw</option>
+                <option value="NC">No Contest/DQ</option>
+        	</select>
+			</br></br>
+Confidence-
+			<input id="confidence" type="range" min="0" max="5" step="1" onchange="printValue('confidence','rangeValue1')" >
+			<input id="rangeValue1" type="text" size="1">
+			</br>
+Attachment-
+			<input id="attachment" type="range" min="0" max="5" step="1" onchange="printValue('attachment','rangeValue2')" >
+			<input id="rangeValue2" type="text" size="1">
+			</br>
+Excitment--
+			<input id="excitement" type="range" min="0" max="5" step="1" onchange="printValue('excitement','rangeValue3')" >
+			<input id="rangeValue3" type="text" size="1">
+
+			<input type="hidden" id="bout_id" value="{{ bout.id }}" />
+			<input type="hidden" id="ring_user_id" value="1" />
+
+			</br><input type="submit" /></br></br>
+
+
+		</form>
+{% endif %}
+
+<!-- Come back after MVP and handle super rare NCs/DQs -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="{% static 'predict_app/voting.js' %}"></script>
+<script>
+    function printValue(sliderID, textbox) {
+        var x = document.getElementById(textbox);
+        var y = document.getElementById(sliderID);
+        x.value = y.value;
+    }
+
+    window.onload = function() { printValue('confidence', 'rangeValue1'); printValue('attachment', 'rangeValue2'); printValue('excitement', 'rangeValue3'); }
+</script>
+
+
+{% endblock %}

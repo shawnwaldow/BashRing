@@ -1,0 +1,49 @@
+{% extends 'predict_app/base_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+
+<!--Base Template opens head-->
+
+
+<title>Bash Ring MMA: {{a_ring_user.first_name.title}} {{a_ring_user.last_name.title}}</title>
+
+</head>
+
+
+<body>
+
+<section>
+
+	<h1>Bash Ring MMA: {{a_ring_user.first_name.title}} {{a_ring_user.last_name.title}}</h1>
+
+		<a img src="{{a_ring_user.avatar}}"/>
+
+		<h2><a href="{% url 'display_upcoming_cards' %}">See Upcoming Cards</a></h2>
+
+		<h3>Pending Predictions</h3>
+		{% for each in tba%}
+			{{each.bout_id}}<br>
+		{% endfor %}
+
+		<h2><a href="{% url 'recent_past_cards' %}">See Past Cards</a></h2>
+
+		<h3>Your Winners</h3>
+		{% for each in winners%}
+			{{each.bout_id}}<br>
+		{% endfor %}
+		<h3>Your Losers</h3>
+			{% for each in losers%}
+			{{each.bout_id}}<br>
+		{% endfor %}
+	
+		<h3>Your Experience</h3>
+		{{a_ring_user.experience}}
+		<br>
+		<h4>Your Accuracy</h4>
+		{{a_ring_user.accuracy}}
+		<br><br>
+
+</section>
+{% endblock %}
