@@ -240,6 +240,7 @@ def display_upcoming_cards(request):
 	
 	servertime = utc.localize(servertime)
 
+
 	#Make 'upcoming' a list of cards in the next 30 days starting with the most
 	#immeadiate
 	#Django object chaching might be a way to streamline this
@@ -251,6 +252,8 @@ def display_upcoming_cards(request):
 		if (card.start_time > servertime) and (card.start_time < servertime + timedelta(days=32)):
 			upcoming.append(card)
 	
+	#keep the sorted by date instead.
+	#google class Meta django
 	upcoming.sort(key=lambda r: r.start_time)
 	#print(upcoming)
 	#Make a dict of keys with card number and values as headliner bouts
@@ -268,6 +271,7 @@ def display_upcoming_cards(request):
 	for each in headliners.keys():
 		print(each)
 		for tussle in all_bouts:
+
 			# look at the fight card id of every bout in the db for ones that are
 			# in our headliners dictonary. For these then check to see if their
 			# importance_on_card == 0. The zeroth bouts are the headliners.
