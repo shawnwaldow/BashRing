@@ -95,11 +95,14 @@ def display_recent_past_cards(request):
 
 
 def display_users_ring(request):
-	"""This is the first page a ring_user sees after login."""
+	"""This is the first page a ring_user sees after login. Here we make three 
+	lists of the user's predictions. Winners, losers, and pending. This allows
+	us to calculate experience = winners + losers. 
+	Accuracy = winners / experience"""
+
 	# Do a query to find the Ring_User corresponding to the logged-in Django
 	# user. If they are new the Ring_User.first_name will = "noname". Update
 	# it to correspond to the django user username. This is for MVP only.
-
 	####CODE TO PUT BACK WHEN USER/RING_USER AUTO LINK FIXED
 	# print(Ring_User.objects.get(user_id=request.user))
 	# aUser = Ring_User.objects.get(user_id=request.user)	
@@ -177,7 +180,8 @@ def display_register(request):
 
 @login_required
 def display_predict_bout(request, bout_id):
-	"""Take a bout number from the url and allow ring_user to vote"""
+	"""Take a bout number from the url and allow ring_user to make a prediction,
+	or to see the result."""
 
 	print("passed bout number", bout_id)
 
