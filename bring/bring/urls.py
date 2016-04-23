@@ -19,6 +19,7 @@ from django.contrib import admin
 from predict_app import urls as predict_app_urls
 from predict_app.views import *
 from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

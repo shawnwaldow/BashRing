@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.bashring.com', 'bashring.com']
 
 
 # Application definition
@@ -105,8 +105,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# For local devl: STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 # NOW FOR WEBFRACTION NECESSARY
-STATIC_URL = 'http://www.bashring.com/static/'
-STATIC_ROOT = '/home/shawnwaldow/webapps/bashring/BashRing/bring/predict_app/static'
+# STATIC_URL = 'http://www.bashring.com/static/'
+STATIC_ROOT = '/home/shawnwaldow/webapps/static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 #STATICFILES_DIRS = ( '/home/USERNAME/webapps/django/PROJECT/static/', )
+
+
