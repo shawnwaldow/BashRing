@@ -105,4 +105,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+# For local devl: STATIC_URL = '/static/'
+# NOW FOR WEBFRACTION NECESSARY
+STATIC_URL = 'http://www.bashring.com/static/'
+STATIC_ROOT = '/home/shawnwaldow/webapps/bashring/BashRing/bring/predict_app/static'
+#STATICFILES_DIRS = ( '/home/USERNAME/webapps/django/PROJECT/static/', )
