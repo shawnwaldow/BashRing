@@ -1,0 +1,14 @@
+{% extends "predict_app/base_template.html" %}
+
+{% block main_content %}
+
+<h1>Create an acccount</h1>
+
+<form action="/accounts/register/" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+
+	{{form.as_p}}
+	<input type="submit" value="Create the account">
+</form>
+
+{% endblock %}
