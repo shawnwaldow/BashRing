@@ -1,4 +1,5 @@
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import url, include
 from .views import *
 
@@ -13,4 +14,5 @@ urlpatterns = [
     url(r'fix/(?P<bout_id>[0-9]+)', declare_winners_by_fight_card),
     url(r'recent_past_cards/', display_recent_past_cards, name="recent_past_cards"),
     url(r'^', display_home)
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

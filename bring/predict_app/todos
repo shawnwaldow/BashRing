@@ -1,5 +1,52 @@
-todos
+*FIX THE DNS ZONE's A file on Ghandi.net (bought domain there)
 
+*EZ
+winners and losers averages accuracy and a links to do the same for every other user. 
+
+*EZ 1 hr
+shows the AGRAGOREKRATOS for all users for each card.
+
+*FIX THE UNAN DEC ERROR
+
+*COMMENTS
+
+*credit and link UFC and Sherdog
+
+*correct registrations successful landing page.
+
+*Convert all tabs to spaces
+
+
+*Send ransom and patrick a link to the user repo
+
+*Whole DB will need nuked and reloaded to reset some ring_users fields. The old url field for avatars is stuck at 100characters.
+
+*README 1hr
+
+
+*Project Proposal 1hr
+
+*EZ 1.5 hour
+-Add a field to predict what round a figth is won in
+
+*EZ with help 2hrs
+-implement BOOTSTRAP (with heroic features template)
+-->1:40-2:30
+
+
+*HARD or MEDIUM with help. unknown time. Perhaps 8 hours
+-further scraping for bout fight card data maybe use fightmatrix.com
+-->Spent 1/2 chatting with ransom about it.
+
+*MEDIUM. 6 hours
+-further scraping for fighter info using the sherdog scraper on github
+
+*MEDIUM 4 hours
+-Forum from django
+
+#################DONE###########################################
+
+#########FROM MVP PUSH###################
 the models are done for the database we designed. two api calls partially populate the DB. These two steps took about two weeks of class time, but class had little usable programming time for various sorted reasons.
 
 *EZ, 2hrs(really 4)
@@ -83,53 +130,3 @@ Make two FAKE CARDS with fake fighters with fake bouts and enter predictictions 
 14 hrs friday to deadline at 11:59
 
 $$$$$$$$$$$$$$$62hours total$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-
-MISSED ON MVP:
-
-*EZ
-winners and losers averages accuracy and a links to do the same for every other user. 
-
-*EZ 1 hr
-shows the AGRAGOREKRATOS for all users for each card.
-
-*FIX THE UNAN DEC ERROR
-
-*COMMENTS
-
-##########Then immeadiate stretch goals:###########
-
-
-*credit and link UFC and Sherdog
-
-*correct registrations successful landing page.
-
-*Convert all tabs to spaces
-
-
-*Send ransom and patrick a link to the user repo
-
-*Whole DB will need nuked and reloaded to reset some ring_users fields. The old url field for avatars is stuck at 100characters.
-
-*README 1hr
-
-
-*Project Proposal 1hr
-
-*EZ 1.5 hour
--Add a field to predict what round a figth is won in
-
-*EZ with help 2hrs
--implement BOOTSTRAP (with heroic features template)
--->1:40-2:30
-
-
-*HARD or MEDIUM with help. unknown time. Perhaps 8 hours
--further scraping for bout fight card data maybe use fightmatrix.com
--->Spent 1/2 chatting with ransom about it.
-
-*MEDIUM. 6 hours
--further scraping for fighter info using the sherdog scraper on github
-
-*MEDIUM 4 hours
--Forum from django
