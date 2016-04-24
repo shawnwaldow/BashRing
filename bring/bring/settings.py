@@ -112,6 +112,3 @@ STATIC_ROOT = '/home/shawnwaldow/webapps/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-#STATICFILES_DIRS = ( '/home/USERNAME/webapps/django/PROJECT/static/', )
-
-
