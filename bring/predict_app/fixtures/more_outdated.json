@@ -1,0 +1,161 @@
+[
+{
+  "model": "predict_app.weight_class",
+  "pk": 1,
+  "fields": {
+    "division": 5
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 8,
+  "fields": {
+    "division": 6
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 9,
+  "fields": {
+    "division": 7
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 10,
+  "fields": {
+    "division": 8
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 11,
+  "fields": {
+    "division": 9
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 12,
+  "fields": {
+    "division": 10
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 13,
+  "fields": {
+    "division": 11
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 14,
+  "fields": {
+    "division": 12
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 15,
+  "fields": {
+    "division": 0
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 16,
+  "fields": {
+    "division": 1
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 17,
+  "fields": {
+    "division": 2
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 18,
+  "fields": {
+    "division": 3
+  }
+},
+{
+  "model": "predict_app.weight_class",
+  "pk": 19,
+  "fields": {
+    "division": 4
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 1,
+  "fields": {
+    "result": 0
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 2,
+  "fields": {
+    "result": 3
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 3,
+  "fields": {
+    "result": 1
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 4,
+  "fields": {
+    "result": 6
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 5,
+  "fields": {
+    "result": 2
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 6,
+  "fields": {
+    "result": 7
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 7,
+  "fields": {
+    "result": 4
+  }
+},
+{
+  "model": "predict_app.method",
+  "pk": 8,
+  "fields": {
+    "result": 5
+  }
+},
+{
+  "model": "predict_app.fight_card",
+  "pk": 23,
+  "fields": {
+    "title": "WSOF 30",
+    "short_description": "BRANCH VS. STARKS",
+    "organization": "World Series of Fighting",
+    "organizations_id": 30,
+    "start_time": "2016-04-02T20:00:00Z",
+    "end_time": "2016-04-02T23:59:59Z"
+  }
+}
+]

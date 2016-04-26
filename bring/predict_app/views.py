@@ -51,7 +51,7 @@ def display_recent_past_cards(request):
 	past=[]
 	for card in fight_cards:
 		#IMPROVE THIS IF STATEMENT TO EVALUATE WITHOUT THE AND AFTER MVP.
-		if (card.start_time < servertime) and (card.start_time > servertime - timedelta(days=5)):
+		if (card.start_time < servertime) and (card.start_time > servertime - timedelta(days=32)):
 			past.append(card)
 	
 	past.sort(key=lambda r: r.start_time)
