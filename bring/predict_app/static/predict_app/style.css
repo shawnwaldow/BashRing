@@ -26,6 +26,7 @@ h1 {
 		color: black;
 }
 
+.container {display: flex;}
 .badge-start {max-width: 100px;}
 .badge {max-width: 100px; flex-grow: 1;}
  
