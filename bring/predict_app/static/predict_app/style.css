@@ -27,8 +27,8 @@ h1 {
 }
 
 .container {display: flex;}
-.badge-start {max-width: 100px;}
-.badge {max-width: 100px; flex-grow: 1;}
+.badge-start {max-width: 150px;}
+.badge {max-width: 150px; flex-grow: 1;}
  
 li {
 		color: yellow;
