@@ -24,7 +24,7 @@
 
 		<h3>Pending Predictions</h3>
 		{% for each in tba%}
-			{{each.bout_id}}<br>
+			{{each.bout_id}}{{each.winner.}}↣{{each.winner.last_name}}<img src="{{each.winner.image_url}}" height="30" width="30"><br>
 		{% endfor %}
 
 		<h2><a href="{% url 'recent_past_cards' %}">See Past Cards</a></h2>
