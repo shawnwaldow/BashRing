@@ -222,6 +222,57 @@
 },
 {
   "model": "predict_app.bout",
+  "pk": 20,
+  "fields": {
+    "fight_card_id": 16,
+    "fighter1": 162,
+    "fighter2": 609,
+    "method_id": 1,
+    "weight_class": 10,
+    "max_rounds": 5,
+    "fighter1_odds": -200,
+    "fighter2_odds": 160,
+    "bout_importance_on_card": 0,
+    "bout_winner_half_draw": null,
+    "bout_winner_draw_half": null
+  }
+},
+{
+  "model": "predict_app.bout",
+  "pk": 21,
+  "fields": {
+    "fight_card_id": 16,
+    "fighter1": 291,
+    "fighter2": 161,
+    "method_id": 1,
+    "weight_class": 13,
+    "max_rounds": 3,
+    "fighter1_odds": 100,
+    "fighter2_odds": -100,
+    "bout_importance_on_card": 0,
+    "bout_winner_half_draw": null,
+    "bout_winner_draw_half": null
+  }
+},
+{
+  "model": "predict_app.bout",
+  "pk": 22,
+  "fields": {
+    "fight_card_id": 17,
+    "fighter1": 76,
+    "fighter2": 651,
+    "method_id": 1,
+    "weight_class": 14,
+    "max_rounds": 3,
+    "fighter1_odds": 100,
+    "fighter2_odds": -100,
+    "bout_importance_on_card": 0,
+    "bout_winner_half_draw": null,
+    "bout_winner_draw_half": null
+  }
+},
+{
+  "model": "predict_app.bout",
   "pk": 23,
   "fields": {
     "fight_card_id": 23,
