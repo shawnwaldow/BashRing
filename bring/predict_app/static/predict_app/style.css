@@ -25,6 +25,8 @@ h1 {
 		font-style: italic;
 		color: black;
 }
+
+.badge {max-width: 100px;}
  
 li {
 		color: yellow;
