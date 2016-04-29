@@ -23,10 +23,12 @@
 		<h2><a href="{% url 'display_upcoming_cards' %}">See Upcoming Cards</a></h2>
 
 		<h3>Pending Predictions</h3>
+		<div class="container">
+		<div class="badge-start">You've Got:</div>
 		{% for each in tba%}
-			{{each.bout_id}}<br>
+			<div class="badge">↣{{each.winner.last_name}}<br><img src="{{each.winner.image_url}}" height="30" width="30"><br><section class="caption">{{each.bout_id}}<br>{{each.winner.}}</section></div>
 		{% endfor %}
-
+		</div>
 		<h2><a href="{% url 'recent_past_cards' %}">See Past Cards</a></h2>
 
 		<h3>Your Winners</h3>

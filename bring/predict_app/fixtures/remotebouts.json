@@ -247,9 +247,6 @@
     "method_id": 1,
     "weight_class": 11,
     "max_rounds": 5,
-    "fighter1_odds": -200,
-    "fighter2_odds": 160,
-    "bout_importance_on_card": 0,
     "fighter1_odds": 100,
     "fighter2_odds": -100,
     "bout_importance_on_card": 1,
@@ -269,7 +266,6 @@
     "max_rounds": 3,
     "fighter1_odds": 100,
     "fighter2_odds": -100,
-    "bout_importance_on_card": 0,
     "bout_importance_on_card": 2,
     "bout_winner_half_draw": null,
     "bout_winner_draw_half": null
@@ -287,76 +283,6 @@
     "max_rounds": 3,
     "fighter1_odds": 100,
     "fighter2_odds": -100,
-    "bout_importance_on_card": 0,
-    "bout_winner_half_draw": null,
-    "bout_winner_draw_half": null
-  }
-},
-{
-  "model": "predict_app.bout",
-  "pk": 23,
-  "fields": {
-    "fight_card_id": 118,
-    "fighter1": 654,
-    "fighter2": 655,
-    "method_id": 2,
-    "weight_class": 13,
-    "max_rounds": 5,
-    "fighter1_odds": 100,
-    "fighter2_odds": -100,
-    "bout_importance_on_card": 0,
-    "bout_winner_half_draw": 654,
-    "bout_winner_draw_half": null
-  }
-},
-{
-  "model": "predict_app.bout",
-  "pk": 24,
-  "fields": {
-    "fight_card_id": 118,
-    "fighter1": 656,
-    "fighter2": 657,
-    "method_id": 3,
-    "weight_class": 11,
-    "max_rounds": 5,
-    "fighter1_odds": 100,
-    "fighter2_odds": -100,
-    "bout_importance_on_card": 1,
-    "bout_winner_half_draw": 656,
-    "bout_winner_draw_half": null
-  }
-},
-{
-  "model": "predict_app.bout",
-  "pk": 25,
-  "fields": {
-    "fight_card_id": 118,
-    "fighter1": 658,
-    "fighter2": 659,
-    "method_id": 3,
-    "weight_class": 13,
-    "max_rounds": 3,
-    "fighter1_odds": 100,
-    "fighter2_odds": -100,
-    "bout_importance_on_card": 2,
-    "bout_winner_half_draw": 658,
-    "bout_winner_draw_half": null
-  }
-},
-{
-  "model": "predict_app.bout",
-  "pk": 26,
-  "fields": {
-    "fight_card_id": 118,
-    "fighter1": 660,
-    "fighter2": 661,
-    "method_id": 2,
-    "weight_class": 11,
-    "max_rounds": 3,
-    "fighter1_odds": 100,
-    "fighter2_odds": -100,
-    "bout_importance_on_card": 3,
-    "bout_winner_half_draw": 660,
     "bout_importance_on_card": 3,
     "bout_winner_half_draw": null,
     "bout_winner_draw_half": null

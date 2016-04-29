@@ -61,7 +61,7 @@ function votingSuccess(response) {
 		var data = JSON.parse(data_json);
 		console.log(response.target.response);
 		console.log("data",data)
-		url="http://127.0.0.1:8000/fightcard/" + data.data.toString();
+		url="http://www.bashring.com/fightcard/" + data.data.toString();
 		 
 		document.location.assign(url)
 
