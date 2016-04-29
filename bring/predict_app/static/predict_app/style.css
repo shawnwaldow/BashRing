@@ -26,9 +26,9 @@ h1 {
 		color: black;
 }
 
-.container {display: flex;}
-.badge-start {max-width: 150px;}
-.badge {max-width: 150px; flex-grow: 1;}
+
+.badge-start {max-width: 150px; display: inline-block;}
+.badge {max-width: 150px; display: inline-block;}
  
 li {
 		color: yellow;
